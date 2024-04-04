@@ -24,7 +24,7 @@ export const enterLoginBoton = [
     alt: "twitter",
   },
   {
-    link: "/enter",
+    link: "/enter/login",
     contenido: "Sing up with Email",
     imagen: "https://cdn-icons-png.flaticon.com/512/2915/2915744.png",
     alt: "email",

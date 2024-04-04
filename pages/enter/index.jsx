@@ -5,7 +5,7 @@ export default function Enter() {
   return (
     <main className=" h-full w-full min-h-screen min-w-screen align-middle justify-center  ">
       <div
-        className="flex h-full w-full min-h-[580px] min-w-screen   items-center  align-middle flex-col  rounded-md p-28
+        className="flex h-full w-full min-h-[580px] min-w-screen   items-center  align-middle flex-col  rounded-md p-10
     "
       >
         <div className="flex w-[580px]   flex-col items-center rounded-md pb-[20px]">
