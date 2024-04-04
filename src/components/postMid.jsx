@@ -1,7 +1,7 @@
 import Image from "next/image";
 export default function PostMid(props) {
   return (
-    <div className="p-[20px]">
+    <div className="p-[20px] max-h-[160px]">
       <div className="flex flex-row p-[8px_16px]">
         <div className="bg-black">
           <Image
@@ -42,12 +42,12 @@ export default function PostMid(props) {
         </div>
       </div>
 
-      <div className=" flex font-normal flex-row align-middle justify-between ">
-        <div className=" flex font-normal flex-row p-[20px]">
+      <div className=" flex font-normal flex-row align-middle justify-between p-[2px_16px] ">
+        <div className=" flex font-normal flex-row ">
           <a className=" flex w-[176px]">💖🦄😮🫷🔥</a>
           <a className=" flex w-[176px] "> 41 reactions</a>
         </div>
-        <div className=" flex align-middle w-[176px] p-[20px]">
+        <div className=" flex align-middle w-[176px] ">
           <Image
             id="imagenPerfil"
             className="bg-black "
@@ -58,7 +58,7 @@ export default function PostMid(props) {
           />
           <a> 6 Comments</a>
         </div>
-        <div id="hora" className=" flex align-middle w-[176px] p-[20px] ">
+        <div id="hora" className=" flex align-middle w-[176px]  ">
           <a className="">22:02hrs</a>
           <Image
             id="imagenPerfil"

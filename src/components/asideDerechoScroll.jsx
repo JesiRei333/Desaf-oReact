@@ -2,7 +2,7 @@ import Image from "next/image";
 export default function AsideRScroll() {
   return (
     <div
-      className="flex flex-col align-middle  justify-stretch text-justify pl-[8px]  
+      className="flex flex-col align-middle min-w-[301.368px]  justify-stretch text-justify pl-[8px]  
     w-[300px]  rounded-md p-[8px_16px] text-[rgb(64_64_64)] font-normal"
     >
       <p id="parrafoAsideI" className="no-underline font-normal text-base  ">
@@ -30,7 +30,10 @@ export default function AsideRScroll() {
         className="no-underline  text-[rgb(59_73_223)] hover:text-[rgba(59,73,223,0.84) text-base font-bold]"
       >
         <br />
-        <p className="text-[30px] font-bold hover:underline">
+        <p
+          id="titulo"
+          className="text-[30px] underline font-bold hover:underline"
+        >
           📽️Cloudflare Developer Week
         </p>
       </a>

@@ -35,6 +35,12 @@ body {
 
 #hora {
   align-items: center;
-  padding-left: 90px;
+  padding-left: 150px;
   font-size: 11px;
+}
+#titulo {
+  text-align: start;
+  justify-self: center;
+  font-size: 18px;
+  text-decoration: underline;
 }
