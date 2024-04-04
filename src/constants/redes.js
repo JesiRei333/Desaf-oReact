@@ -1,12 +1,12 @@
 export const redes = [
   {
     link: "https://twitter.com/thepracticaldev",
-    imagen: "https://cdn-icons-png.flaticon.com/512/107/107195.png ",
+    imagen: "https://cdn-icons-png.flaticon.com/512/107/107195.png",
     alt: "twitter",
   },
   {
     link: "https://www.facebook.com/thepracticaldev",
-    imagen: "https://cdn-icons-png.flaticon.com/512/10097/10097121.png ",
+    imagen: "https://cdn-icons-png.flaticon.com/512/10097/10097121.png",
     alt: "fb",
   },
   {
@@ -16,7 +16,7 @@ export const redes = [
   },
   {
     link: "https://www.instagram.com/thepracticaldev/",
-    imagen: "https://cdn-icons-png.flaticon.com/512/15455/15455779.png ",
+    imagen: "https://cdn-icons-png.flaticon.com/512/11123/11123997.png",
     alt: "insta",
   },
   {

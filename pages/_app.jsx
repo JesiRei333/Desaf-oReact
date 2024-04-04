@@ -11,9 +11,7 @@ export default function App({ Component, pageProps }) {
             <div className="pr-[16px] md:hidden">
               <Image
                 className=""
-                src={
-                  " https://cdn-icons-png.flaticon.com/512/8637/8637657.png "
-                }
+                src={"https://cdn-icons-png.flaticon.com/512/8637/8637657.png"}
                 alt={"DEV Hamburguesa"}
                 width={20}
                 height={20}
@@ -52,7 +50,7 @@ export default function App({ Component, pageProps }) {
               <button className=" min-h-full bg-[rgb(0_0_0/0%] hover:bg-[rgb(59_73_223/10%)] hover:brightness-200 ">
                 <Image
                   src={
-                    "https://cdn-icons-png.flaticon.com/512/2319/2319177.png "
+                    "https://cdn-icons-png.flaticon.com/512/2319/2319177.png"
                   }
                   alt={"Lupa"}
                   width={30}
@@ -69,7 +67,7 @@ export default function App({ Component, pageProps }) {
               <button className=" min-h-full bg-[rgb(0_0_0/0%] hover:bg-[rgb(59_73_223/10%)] hover:brightness-200">
                 <Image
                   src={
-                    "https://cdn-icons-png.flaticon.com/512/2319/2319177.png "
+                    "https://cdn-icons-png.flaticon.com/512/2319/2319177.png"
                   }
                   alt={"Lupa"}
                   width={30}

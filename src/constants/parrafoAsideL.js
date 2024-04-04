@@ -26,7 +26,7 @@ export const parrafo = [
   },
   {
     link: "https://dev.to/tags",
-    imagen: "https://cdn-icons-png.flaticon.com/512/971/971115.png ",
+    imagen: "https://cdn-icons-png.flaticon.com/512/971/971115.png",
     alt: "Tags",
     contenido: "Tags",
   },
