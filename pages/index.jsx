@@ -13,17 +13,18 @@ import AsideRScroll from "@/src/components/asideDerechoScroll";
 import TextoConHiper from "@/src/components/textoconComentarios";
 import { textoConHiper } from "@/src/constants/textoConHiper";
 import { discussWater } from "@/src/constants/discusWatercooler";
+import PostMid from "@/src/components/postMid";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
-    <main className="flex justify-center items-center align-middle  bg-[rgb(245_245_245)] p-[55.990px] text-[rgb(64_64_64)] ">
+    <main className="flex justify-center items-center align-middle  bg-[rgb(245_245_245)] p-[55.990px]  text-[rgb(64_64_64)] ">
       <div className="flex">
         <div
           id="divL"
-          className=" flex flex-col min-w-[208.021px] h-full p-[16px]"
+          className=" flex flex-col min-w-[208.021px] h-full p-[16px] pr-[0px]"
         >
-          <div className="p-[8px_16px] min-w-[208px] min-h-[23.983px] rounded-md no-underline ">
+          <div className="p-[8px_16px] pr-[5px] min-w-[208px] min-h-[23.983px] rounded-md no-underline ">
             {parrafo.map((item, index) => {
               return (
                 <AsideLLink
@@ -37,11 +38,11 @@ export default function Home() {
             })}
           </div>
           <br />
-          <div className=" items-center justify-center align-middle font-bold p-[8px_16px]  ">
+          <div className=" items-center justify-center align-middle font-bold p-[8px_16px] pr-[5px]  ">
             <p>Other</p>
           </div>
 
-          <div className="p-[8px_16px] min-w-[208px] min-h-[23.983px]  rounded-md no-underline ">
+          <div className="p-[8px_16px] pr-[5px] min-w-[208px] min-h-[23.983px]  rounded-md no-underline ">
             {parrafoBot.map((item, index) => {
               return (
                 <AsideLLink
@@ -62,7 +63,7 @@ export default function Home() {
             {redes.map((item, index) => {
               return (
                 <div
-                  className="w-min-[40px] h-min-[40px] rounded-md flex items-center p-[8px] align-middle no-underline "
+                  className="w-min-[40px] h-min-[40px] rounded-md flex items-center p-[8px] pr-[5px] align-middle no-underline "
                   id="redes"
                 >
                   <BotonRedes
@@ -76,7 +77,7 @@ export default function Home() {
             })}
           </div>
           <br />
-          <div className="text-[rgb(64_64_64)] items-center justify-center align-middle font-bold p-[8px_16px]">
+          <div className="text-[rgb(64_64_64)] items-center justify-center align-middle font-bold p-[8px_16px] pr-[5px]">
             <p>Popular Tags</p>
           </div>
           <div className="overflow-y-scroll max-h-[401px] max-w-[251.984px] p-[8px_16px] ">
@@ -95,15 +96,19 @@ export default function Home() {
               );
             })}
           </div>
-          <div className="p-[8px_16px] max-w-[251.984px] pl-8 align-middle  no-underline border-[0.5px] border-[rgba(82,82,82,0.14)]  ">
+          <div className="p-[8px_16px] max-w-[251.984px] pr-[5px] align-middle  no-underline border-[0.5px] border-[rgba(82,82,82,0.14)]  ">
             {" "}
             <DevAsideLComuni className="hover:underline font-normal" />
           </div>
         </div>
 
-        <div id="divM" className="min-w-[570.694px] h-full bg-red-600">
-          {" "}
-          mid
+        <div
+          id="divM"
+          className=" flex min-w-[610.656px]  p-[20px] pl-[0px] h-full  text-[rgb(61_61_61)] text-[0.875rem] font-bold"
+        >
+          <div className=" flex border-[0.5px] min-w-[610.656px]   border-[rgba(82,82,82,0.14)]">
+            <PostMid className="flex hover:bg-[rgba(113,234,139,0.14)] hover:border-1 p-[8px_16px]  " />
+          </div>
         </div>
         <div
           id="divR"
