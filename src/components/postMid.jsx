@@ -51,7 +51,7 @@ export default function PostMid(props) {
           <Image
             id="imagenPerfil"
             className="bg-black "
-            src={"https://cdn-icons-png.flaticon.com/512/1947/1947247.png "}
+            src={"https://cdn-icons-png.flaticon.com/512/1947/1947247.png"}
             alt={""}
             width={24}
             height={24}
@@ -63,7 +63,7 @@ export default function PostMid(props) {
           <Image
             id="imagenPerfil"
             className="bg-black "
-            src={"https://cdn-icons-png.flaticon.com/128/5662/5662990.png "}
+            src={"https://cdn-icons-png.flaticon.com/128/5662/5662990.png"}
             alt={""}
             width={20}
             height={20}

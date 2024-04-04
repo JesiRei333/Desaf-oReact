@@ -1,13 +1,13 @@
 export const parrafoBot = [
   {
     link: "https://dev.to/code-of-conduct",
-    imagen: "   https://cdn-icons-png.flaticon.com/512/5323/5323424.png ",
+    imagen: "https://cdn-icons-png.flaticon.com/512/4450/4450192.png",
     alt: "Code of Conduct",
     contenido: "Code of Conduct",
   },
   {
     link: "https://dev.to/privacy",
-    imagen: "https://cdn-icons-png.flaticon.com/512/4022/4022111.png ",
+    imagen: "https://cdn-icons-png.flaticon.com/512/2461/2461871.png",
     alt: "Privacy Policy",
     contenido: "Privacy Policy",
   },
