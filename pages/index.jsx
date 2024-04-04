@@ -49,7 +49,7 @@ export default function Home() {
             {parrafoBot.map((item, index) => {
               return (
                 <AsideLLink
-                  key={`parrafo-${index}`}
+                  key={`parrafoBot-${index}`}
                   link={item.link}
                   imagen={item.imagen}
                   alt={item.alt}
@@ -70,7 +70,7 @@ export default function Home() {
                   id="redes"
                 >
                   <BotonRedes
-                    key={`parrafo-${index}`}
+                    key={`redes-${index}`}
                     link={item.link}
                     imagen={item.imagen}
                     alt={item.alt}
@@ -91,7 +91,7 @@ export default function Home() {
                   id="redes"
                 >
                   <ParrafoLink
-                    key={`parrafo-${index}`}
+                    key={`linkHastag-${index}`}
                     link={item.link}
                     contenido={item.contenido}
                   />
@@ -119,6 +119,7 @@ export default function Home() {
                     id="redes"
                   >
                     <BotonHeaderMid
+                      key={`botonesHeaderMid-${index}`}
                       link={""}
                       contenido={item.contenido}
                       bandera={item.bandera}
@@ -136,6 +137,7 @@ export default function Home() {
                     id="redes"
                   >
                     <BotonHeaderMid
+                      key={`botonesHeaderMidDerecha-${index}`}
                       link={""}
                       contenido={item.contenido}
                       bandera={item.bandera}
@@ -188,7 +190,7 @@ export default function Home() {
                     id="redes"
                   >
                     <TextoConHiper
-                      key={`parrafo-${index}`}
+                      key={`extoConHiper-${index}`}
                       link={item.link}
                       contenido={item.contenido}
                       numRam={item.numRam}
@@ -208,7 +210,7 @@ export default function Home() {
                     id="redes"
                   >
                     <TextoConHiper
-                      key={`parrafo-${index}`}
+                      key={`discussWater-${index}`}
                       link={item.link}
                       contenido={item.contenido}
                       numRam={item.numRam}
