@@ -29,7 +29,7 @@ export default function EnterMail() {
         className="flex h-full w-full min-h-[530px] min-w-screen   items-center  align-middle flex-col  rounded-md pt-10
     "
       >
-        <div className="flex w-[530px]   flex-col items-center rounded-md pb-[20px]">
+        <div className="flex w-[530px] flex-col items-center rounded-md pb-[20px]">
           <Link href="/">
             <Image
               className="rounded-md pb-4"

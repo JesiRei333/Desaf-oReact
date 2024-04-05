@@ -20,9 +20,9 @@ export default function Enter() {
   }
 
   return (
-    <div>
+    <main>
       <Nav />
-      <main className=" h-full w-full min-h-screen min-w-screen   ">
+      <div className=" h-full w-full min-h-screen min-w-screen   ">
         <div
           className="flex w-[710px] h-[100%] min-w-screen  align-middle rounded-md 
         pt-[6rem] ml-auto mr-auto text-[rgb(23_23_23)"
@@ -203,7 +203,7 @@ export default function Enter() {
             </form>
           </div>
         </div>
-      </main>
-    </div>
+      </div>
+    </main>
   );
 }

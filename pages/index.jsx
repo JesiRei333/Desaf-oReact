@@ -22,14 +22,13 @@ import Nav from "./nav";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  // let dato = JSON.parse(localStorage.getItem("formData"));
-
-  //console.log(localStorage.getItem("formData"));
+  //let dato = localStorage.getItem("formData") || [];
   //console.log(dato.articuloPost);
+
   return (
-    <div>
+    <main>
       <Nav />
-      <main className="flex justify-center items-center align-middle  bg-[rgb(245_245_245)] p-[55.990px]  text-[rgb(64_64_64)] ">
+      <div className="flex justify-center items-center align-middle  bg-[rgb(245_245_245)] p-[55.990px]  text-[rgb(64_64_64)] ">
         <div className="flex justify-center   ">
           <div
             id="divL"
@@ -234,7 +233,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </main>
-    </div>
+      </div>
+    </main>
   );
 }
