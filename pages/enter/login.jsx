@@ -140,6 +140,7 @@ export default function Enter() {
                   </p>
                   <br />
                   <input
+                    type="password"
                     required
                     name="Password"
                     className=" flex justify-center items-center align-middle w-[500px] h-[40px] p-[12px] border-2 rounded-lg outline-none hover:border-[rgb(47_58_178)]  "
@@ -169,6 +170,7 @@ export default function Enter() {
                   </p>
                   <br />
                   <input
+                    type="password"
                     required
                     className=" flex justify-center items-center align-middle w-[500px] h-[40px] p-[12px] border-2 rounded-lg  outline-none hover:border-[rgb(47_58_178)] "
                     {...register("passwordConfirmation", {
