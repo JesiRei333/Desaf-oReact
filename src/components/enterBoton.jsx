@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { enterLoginBoton } from "../constants/enterLoginboton";
 
 export default function EnterBoton(props) {
   return (
