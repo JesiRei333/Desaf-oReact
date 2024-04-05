@@ -25,7 +25,7 @@ export default function PostMid(props) {
       </div>
       <div className="text-[rgb(9_9_9)]  font-extrabold hover:text-[rgb(59_73_223)] text-[1.5rem]] p-[20px]">
         <p id="tituloPost" className=" hover:text-[rgb(59_73_223)]">
-          Este es un gran titulo
+          {props.titulo}
         </p>
       </div>
 

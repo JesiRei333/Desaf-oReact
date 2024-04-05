@@ -18,9 +18,14 @@ import BotonHeaderMid from "@/src/components/botonHeaderMid";
 import { botonesHeaderMid } from "@/src/constants/botonesHeaderMid";
 import { botonesHeaderMidDerecha } from "@/src/constants/botonHeaderMidDerecha";
 import Nav from "./nav";
+import art from "@/src/constants/localStot";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  let dato = JSON.parse(localStorage.getItem("formData")) || [];
+
+  console.log(localStorage.getItem("formData"));
+  console.log(dato.articuloPost);
   return (
     <div>
       <Nav />
@@ -168,7 +173,10 @@ export default function Home() {
             </div>
 
             <div className=" flex border-[0.5px] max-w-[555.656px]  md:min-w-[610.656px] pl-20 sm:pl-12 md:pl-0  border-[rgba(82,82,82,0.14)] rounded-md mb-1 ">
-              <PostMid className="flex hover:bg-[rgba(113,234,139,0.14)] hover:border-1 p-[8px_16px]  " />
+              <PostMid
+                className="flex hover:bg-[rgba(113,234,139,0.14)] hover:border-1 p-[8px_16px]  "
+                titulo={dato.articuloPost}
+              />
             </div>
           </div>
           <div

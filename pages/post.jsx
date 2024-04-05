@@ -3,12 +3,11 @@ import Image from "next/image";
 import BotonPost from "@/src/components/botonPost";
 import { botonPost } from "@/src/constants/botonPostImg";
 
-import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { data } from "autoprefixer";
+import { useRouter } from "next/router";
 
 export default function Post() {
-  const [todos, setTodos] = useState([]);
+  const router = useRouter();
 
   const {
     handleSubmit,
@@ -17,17 +16,14 @@ export default function Post() {
     formState: { errors },
   } = useForm();
 
-  let dataPost = {
-    titulo: data.articuloTitulo,
-    post: data.articuloPost,
-  };
-
   async function onSubmit(dataPost) {
     localStorage.setItem("formData", JSON.stringify(dataPost));
     reset();
+    router.push("/");
+    return;
   }
   return (
-    <main className=" h-full w-full min-h-screen min-w-screen  border-1 ">
+    <main className=" h-full w-full min-h-screen min-w-screen   ">
       <nav className=" flex justify-center bg-[rgb(245_245_245)] min-h-[55.990px] min-w-full align-middle items-center ">
         <div className=" flex flex-row justify-center items-center  md:pr-60  ">
           <Link href="/">
@@ -57,11 +53,11 @@ export default function Post() {
       </nav>
 
       <div
-        className="flex md:justify-center w-[1500px] h-[1500px] min-w-screen  align-middle rounded-md 
+        className="flex md:justify-center w-[1500px] min-w-screen  align-middle rounded-md 
          ml-auto mr-auto text-[rgb(23_23_23)]"
       >
         <div
-          className="flex flex-col max-w-[806px] min-h-[640px] border-2 min-w-screen  p-[64px] align-middle rounded-md 
+          className="flex flex-col justify-start  md:max-w-[506px] lg:max-w-[806px]  border-2 p-[64px]  rounded-md 
           "
         >
           <button
@@ -72,26 +68,36 @@ export default function Post() {
           </button>
 
           <form name="form" className="" onSubmit={handleSubmit(onSubmit)}>
-            <input
-              className="min-h-[62px]  outline-none text-[7rem] pt-5 text-lg sm:text-3xl md:text-4xl lg:text-5xl font-bold "
+            <textarea
+              className=" align-top resize-none w-[100%] outline-none text-[7rem] pt-5 text-lg sm:text-3xl md:text-4xl lg:text-5xl font-bold "
               placeholder="New post title here..."
               name="articuloTitulo"
               id="articuloTitulo"
-              cols="30"
+              cols="40"
               rows="3"
               required
               autoComplete="off"
               {...register("articuloTitulo", {
                 minLength: {
                   value: 3,
-                  message: "Add una tarea de al menos 3 caracteres",
+                  message: "Tu título debe tener al menos 3 caracteres",
                 },
                 maxLength: {
-                  value: 30,
-                  message: "Add una tarea de máximo 30 caracteres",
+                  value: 60,
+                  message: "Tu título debe tener  menos de 60 caracteres",
                 },
               })}
-            />
+            ></textarea>
+            <div id="errordeTitulo" className="p-1">
+              {errors.articuloTitulo && (
+                <p
+                  className=" text-base flex justify-center items-center "
+                  id="letra"
+                >
+                  {"⚠ "} {errors.articuloTitulo.message}
+                </p>
+              )}
+            </div>
             <div className=" p-2 ">Add up 4 tags...</div>
             <div id="botones " className="flex flex-row pl-5   ">
               {botonPost.map((item, index) => {
@@ -111,29 +117,41 @@ export default function Post() {
               })}
             </div>
             <div>
-              <input
-                className="min-h-[62px] flex outline-none text-[7rem] pt-5 text-base sm:text-xl font-mono  "
+              <div id="errordePost" className="p-1">
+                {" "}
+                {errors.articuloPost && (
+                  <p
+                    className=" text-base flex justify-center items-center "
+                    id="letra"
+                  >
+                    {"⚠ "} {errors.articuloPost.message}
+                  </p>
+                )}
+              </div>
+
+              <textarea
+                className="resize-none  w-[100%] flex outline-none text-[7rem] pt-5 text-base sm:text-xl font-mono  "
                 placeholder="Write your post"
                 name="articuloPost"
                 id="articuloPost"
-                cols="60"
-                rows="22"
+                cols="10"
+                rows="12"
                 autoComplete="off"
                 required
                 {...register("articuloPost", {
                   minLength: {
                     value: 3,
-                    message: "Add una tarea de al menos 3 caracteres",
+                    message: "Add un post de al menos 3 caracteres",
                   },
                   maxLength: {
-                    value: 30,
-                    message: "Add una tarea de máximo 30 caracteres",
+                    value: 300,
+                    message: "Tu post rebasado, usa menos de 300 caracteres",
                   },
                 })}
-              />
+              ></textarea>
             </div>
             <button
-              className="bg-indigo-400 text-slate-900 rounded-r-xl p-2 hover:bg-indigo-400/50 hover:text-white font-semibold hover:shadow-lg  hover:shadow-cyan-500"
+              className="hover:bg-[rgb(59_73_223)] p-[8px_16px] min-w-[95px] text-center text-[rgb(59_73_223)] hover:text-[rgb(255_255_255)] border-[rgb(59_73_223)] border-2 rounded-lg  font-semibold"
               type="submit"
             >
               Agregar
