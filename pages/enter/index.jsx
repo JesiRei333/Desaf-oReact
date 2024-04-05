@@ -6,26 +6,28 @@ export default function Enter() {
   return (
     <main className=" h-full w-full min-h-screen min-w-screen align-middle justify-center  ">
       <div
-        className="flex h-full w-full min-h-[580px] min-w-screen   items-center  align-middle flex-col  rounded-md p-10
+        className="flex h-full w-full min-h-[580px] min-w-screen   items-center  align-middle flex-col  rounded-md pt-10
     "
       >
         <div className="flex w-[580px]   flex-col items-center rounded-md pb-[20px]">
-          <Image
-            className="rounded-md pb-4"
-            src={
-              "https://dev-to-uploads.s3.amazonaws.com/uploads/logos/original_logo_0DliJcfsTcciZen38gX9.png"
-            }
-            alt={"Dev"}
-            width={60}
-            height={48}
-          />
+          <Link href="/">
+            <Image
+              className="rounded-md pb-4"
+              src={
+                "https://dev-to-uploads.s3.amazonaws.com/uploads/logos/original_logo_0DliJcfsTcciZen38gX9.png"
+              }
+              alt={"Dev"}
+              width={60}
+              height={48}
+            />
+          </Link>
 
           <p className="text-[rgb(23_23_23)] text-[1.875rem] font-bold">
             Join the DEV Community
           </p>
           <p>DEV Community is a community of 1,394,581 amazing developers</p>
         </div>
-        <div className="w-[580px] h-[50px] p-[12]">
+        <div className="w-[580px] items-center align-middle h-[50px] pt-[12]">
           {enterLoginBoton.map((item, index) => {
             return (
               <div
@@ -45,16 +47,21 @@ export default function Enter() {
           })}
         </div>
       </div>
-      <br />
-      <div className="flex  justify-center flex-col items-center rounded-md pb-[20px] font-light italic text-sm ">
+      <div className="flex  justify-center flex-col items-center rounded-md font-light italic text-sm ">
         <p>
           {" "}
           By signing up, you are agreeing to our{" "}
           <span className="text-[rgb(59_73_223)] font-normal">
-            privacy policy, terms of use
+            <a href="https://dev.to/privacy"> privacy policy, terms of use</a>
           </span>
         </p>
-        <p> and code of conduct. </p>
+        <p>
+          {" "}
+          and
+          <span className="text-[rgb(59_73_223)] font-normal">
+            <a href="https://dev.to/code-of-conduct">code of conduct.</a>
+          </span>
+        </p>
         <br />
         <div className="w-min-[40px]  h-min-[40px] flex justify-center items-center text-justify align-middle text-base font-normal min-w-[580px] max-h-[580px] text-[rgb(23_23_23)] not-italic border-t-2 p-3">
           Already have an account?{" "}
