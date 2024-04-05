@@ -34,7 +34,7 @@ export default function Enter() {
             </div>
             <div id="nameLogin" className="pt-2 pb-2">
               <p className=" flex flex-initial  w-[100px] h-[20px] text-center  text-[rgb(5,5,5)] font-semibold">
-                Name
+                Name <span className="text-[rgb(220_38_38)] text-xl">*</span>
               </p>
               <br />
               <button className=" flex justify-center items-center align-middle w-[500px] h-[35px] p-[12px] border-2 rounded-lg ">
@@ -43,7 +43,7 @@ export default function Enter() {
             </div>
             <div id="userLogin" className="pt-2 pb-2">
               <p className=" flex flex-initial  w-[100px] h-[20px] text-center  text-[rgb(5,5,5)] font-semibold">
-                Username
+                Username<span className="text-[rgb(220_38_38)] text-xl">*</span>
               </p>
               <br />
               <button className=" flex justify-center items-center align-middle w-[500px] h-[40px] p-[12px] border-2 rounded-lg ">
@@ -52,7 +52,7 @@ export default function Enter() {
             </div>
             <div id="Email" className="pt-2 pb-2">
               <p className=" flex flex-initial  w-[100px] h-[20px] text-center  text-[rgb(5,5,5)] font-semibold">
-                Email
+                Email<span className="text-[rgb(220_38_38)] text-xl">*</span>
               </p>
               <br />
               <button className=" flex justify-center items-center align-middle w-[500px] h-[40px] p-[12px] border-2 rounded-lg ">
@@ -61,7 +61,7 @@ export default function Enter() {
             </div>
             <div id="paswordLogin" className="pt-2 pb-2">
               <p className=" flex flex-initial  w-[100px] h-[20px] text-center  text-[rgb(5,5,5)] font-semibold">
-                Password
+                Password<span className="text-[rgb(220_38_38)] text-xl">*</span>
               </p>
               <br />
               <button className=" flex justify-center items-center align-middle w-[500px] h-[40px] p-[12px] border-2 rounded-lg  ">
@@ -70,13 +70,14 @@ export default function Enter() {
               <div id="confirmaLogin" className="pt-2 pb-2">
                 <p className=" flex flex-initial pb-2  w-[200px] h-[20px]  text-[rgb(5,5,5)] font-semibold">
                   Pasaword Confirmation
+                  <span className="text-[rgb(220_38_38)] text-xl">*</span>
                 </p>
                 <br />
                 <button className=" flex justify-center items-center align-middle w-[500px] h-[40px] p-[12px] border-2 rounded-lg  ">
                   {" "}
                 </button>
               </div>
-              <button className="hover:bg-[rgb(47_58_178)] p-[8px_16px] bg-[rgb(59_73_223)]  min-w-[95px] text-center  text-[rgb(255_255_255)] border-[rgb(59_73_223)] border-2 rounded-lg  font-semibold">
+              <button className="hover:bg-[rgb(47_58_178)] p-[8px_16px] bg-[rgb(59_73_223)]  min-w-[95px] text-center  text-[rgb(255_255_255)] rounded-lg  font-semibold">
                 Sing Up
               </button>
             </div>

@@ -14,7 +14,7 @@ export const enterLoginBoton = [
   {
     link: "/enter",
     contenido: "Sing up with GitHub",
-    imagen: "https://cdn-icons-png.flaticon.com/512/4926/4926625.png",
+    imagen: "https://cdn-icons-png.flaticon.com/512/2111/2111432.png",
     alt: "GitHub",
   },
   {
@@ -28,5 +28,6 @@ export const enterLoginBoton = [
     contenido: "Sing up with Email",
     imagen: "https://cdn-icons-png.flaticon.com/512/2915/2915744.png",
     alt: "email",
+    badera: true,
   },
 ];

@@ -1,6 +1,7 @@
 import EnterBoton from "@/src/components/enterBoton";
 import Image from "next/image";
 import { enterLoginBoton } from "@/src/constants/enterLoginboton";
+import Link from "next/link";
 export default function Enter() {
   return (
     <main className=" h-full w-full min-h-screen min-w-screen align-middle justify-center  ">
@@ -57,7 +58,9 @@ export default function Enter() {
         <br />
         <div className="w-min-[40px]  h-min-[40px] flex justify-center items-center text-justify align-middle text-base font-normal min-w-[580px] max-h-[580px] text-[rgb(23_23_23)] not-italic border-t-2 p-3">
           Already have an account?{" "}
-          <span className="text-[rgb(59_73_223)] font-normal"> Log in.</span>
+          <span className="text-[rgb(59_73_223)] font-normal">
+            <Link href="/enter/enterEmail"> Log in. </Link>
+          </span>
         </div>
       </div>
     </main>
