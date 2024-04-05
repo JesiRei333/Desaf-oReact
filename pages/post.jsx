@@ -3,7 +3,29 @@ import Image from "next/image";
 import BotonPost from "@/src/components/botonPost";
 import { botonPost } from "@/src/constants/botonPostImg";
 
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { data } from "autoprefixer";
+
 export default function Post() {
+  const [todos, setTodos] = useState([]);
+
+  const {
+    handleSubmit,
+    register,
+    reset,
+    formState: { errors },
+  } = useForm();
+
+  let dataPost = {
+    titulo: data.articuloTitulo,
+    post: data.articuloPost,
+  };
+
+  async function onSubmit(dataPost) {
+    localStorage.setItem("formData", JSON.stringify(dataPost));
+    reset();
+  }
   return (
     <main className=" h-full w-full min-h-screen min-w-screen  border-1 ">
       <nav className=" flex justify-center bg-[rgb(245_245_245)] min-h-[55.990px] min-w-full align-middle items-center ">
@@ -49,44 +71,74 @@ export default function Post() {
             Add a cover image
           </button>
 
-          <textarea
-            className="min-h-[62px]  outline-none text-[7rem] pt-5 text-lg sm:text-3xl md:text-4xl lg:text-5xl font-bold "
-            placeholder="New post title here..."
-            name="articuloTitulo"
-            id="articuloTitulo"
-            cols="30"
-            rows="3"
-            autoComplete="off"
-          ></textarea>
-          <div className=" p-2 ">Add up 4 tags...</div>
-          <div id="botones " className="flex flex-row pl-5   ">
-            {botonPost.map((item, index) => {
-              return (
-                <div
-                  className=" rounded-md flex items-center text-justify align-middle text-sm font-semibold "
-                  id="redes"
-                >
-                  <BotonPost
-                    key={`BotonPost-${index}`}
-                    icono={item.icono}
-                    alt={item.alt}
-                    className={""}
-                  />
-                </div>
-              );
-            })}
-          </div>
-          <div>
-            <textarea
-              className="min-h-[62px] flex outline-none text-[7rem] pt-5 text-base sm:text-xl font-mono  "
-              placeholder="Write your post"
-              name="articuloPost"
-              id="articuloPost"
-              cols="60"
-              rows="22"
+          <form name="form" className="" onSubmit={handleSubmit(onSubmit)}>
+            <input
+              className="min-h-[62px]  outline-none text-[7rem] pt-5 text-lg sm:text-3xl md:text-4xl lg:text-5xl font-bold "
+              placeholder="New post title here..."
+              name="articuloTitulo"
+              id="articuloTitulo"
+              cols="30"
+              rows="3"
+              required
               autoComplete="off"
-            ></textarea>
-          </div>
+              {...register("articuloTitulo", {
+                minLength: {
+                  value: 3,
+                  message: "Add una tarea de al menos 3 caracteres",
+                },
+                maxLength: {
+                  value: 30,
+                  message: "Add una tarea de máximo 30 caracteres",
+                },
+              })}
+            />
+            <div className=" p-2 ">Add up 4 tags...</div>
+            <div id="botones " className="flex flex-row pl-5   ">
+              {botonPost.map((item, index) => {
+                return (
+                  <div
+                    className=" rounded-md flex items-center text-justify align-middle text-sm font-semibold "
+                    id="redes"
+                  >
+                    <BotonPost
+                      key={`BotonPost-${index}`}
+                      icono={item.icono}
+                      alt={item.alt}
+                      className={""}
+                    />
+                  </div>
+                );
+              })}
+            </div>
+            <div>
+              <input
+                className="min-h-[62px] flex outline-none text-[7rem] pt-5 text-base sm:text-xl font-mono  "
+                placeholder="Write your post"
+                name="articuloPost"
+                id="articuloPost"
+                cols="60"
+                rows="22"
+                autoComplete="off"
+                required
+                {...register("articuloPost", {
+                  minLength: {
+                    value: 3,
+                    message: "Add una tarea de al menos 3 caracteres",
+                  },
+                  maxLength: {
+                    value: 30,
+                    message: "Add una tarea de máximo 30 caracteres",
+                  },
+                })}
+              />
+            </div>
+            <button
+              className="bg-indigo-400 text-slate-900 rounded-r-xl p-2 hover:bg-indigo-400/50 hover:text-white font-semibold hover:shadow-lg  hover:shadow-cyan-500"
+              type="submit"
+            >
+              Agregar
+            </button>
+          </form>
         </div>
       </div>
     </main>
