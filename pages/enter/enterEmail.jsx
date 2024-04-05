@@ -73,7 +73,7 @@ export default function EnterMail() {
             <button className="hover:bg-[rgb(47_58_178)] bg-[rgb(59_73_223)] p-3 text-center text-base text-[rgb(255_255_255)] rounded-lg  ">
               Log in
             </button>
-
+            <br />
             <div className="flex  justify-center flex-col items-center rounded-md pb-[20px] font-light italic text-sm ">
               <p>
                 {" "}
