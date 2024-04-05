@@ -110,15 +110,15 @@ export default function Home() {
 
           <div
             id="divM"
-            className=" flex flex-col min-w-[610.656px]  p-[20px] pl-[0px] h-full  text-[rgb(61_61_61)] text-[0.875rem] font-bold"
+            className=" flex flex-col  p-[20px] pl-[0px] h-full  text-[rgb(61_61_61)] text-[0.875rem] font-bold"
           >
             <header className="flex flex-row">
-              <div className=" flex flex-row  text-lg font-normal">
+              <div className=" flex flex-row pl-16 md:pl-0 text-lg font-normal">
                 {" "}
                 {botonesHeaderMid.map((item, index) => {
                   return (
                     <div
-                      className="rounded-md flex items-center text-justify align-middle pl-[8px]  p-[0px_5px] hover:text-[rgb(59,73,223)]  "
+                      className="rounded-md flex items-center text-justify align-middle  md:pl-[8px]  p-[0px_5px] hover:text-[rgb(59,73,223)]  "
                       id="redes"
                     >
                       <BotonHeaderMid
@@ -167,7 +167,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className=" flex border-[0.5px] min-w-[610.656px]   border-[rgba(82,82,82,0.14)] rounded-md mb-1 ">
+            <div className=" flex border-[0.5px] max-w-[555.656px]  md:min-w-[610.656px] pl-20 sm:pl-12 md:pl-0  border-[rgba(82,82,82,0.14)] rounded-md mb-1 ">
               <PostMid className="flex hover:bg-[rgba(113,234,139,0.14)] hover:border-1 p-[8px_16px]  " />
             </div>
           </div>
@@ -189,7 +189,7 @@ export default function Home() {
                 {textoConHiper.map((item, index) => {
                   return (
                     <div
-                      className="w-min-[40px] min-w-[301.368px]  h-min-[40px] rounded-md flex items-center text-justify align-middle   "
+                      className="md:w-min-[40px] md:min-w-[301.368px]  md:h-min-[40px] rounded-md flex items-center text-justify align-middle   "
                       id="redes"
                     >
                       <TextoConHiper

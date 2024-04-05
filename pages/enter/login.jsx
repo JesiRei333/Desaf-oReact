@@ -37,45 +37,35 @@ export default function Enter() {
                 Name <span className="text-[rgb(220_38_38)] text-xl">*</span>
               </p>
               <br />
-              <button className=" flex justify-center items-center align-middle w-[500px] h-[35px] p-[12px] border-2 rounded-lg ">
-                {" "}
-              </button>
+              <input className=" flex justify-center items-center align-middle w-[500px] h-[35px] p-[12px] border-2 rounded-lg outline-none hover:border-[rgb(47_58_178)] " />
             </div>
             <div id="userLogin" className="pt-2 pb-2">
               <p className=" flex flex-initial  w-[100px] h-[20px] text-center  text-[rgb(5,5,5)] font-semibold">
                 Username<span className="text-[rgb(220_38_38)] text-xl">*</span>
               </p>
               <br />
-              <button className=" flex justify-center items-center align-middle w-[500px] h-[40px] p-[12px] border-2 rounded-lg ">
-                {" "}
-              </button>
+              <input className=" flex justify-center items-center align-middle w-[500px] h-[40px] p-[12px] border-2 rounded-lg outline-none hover:border-[rgb(47_58_178)] " />
             </div>
             <div id="Email" className="pt-2 pb-2">
               <p className=" flex flex-initial  w-[100px] h-[20px] text-center  text-[rgb(5,5,5)] font-semibold">
                 Email<span className="text-[rgb(220_38_38)] text-xl">*</span>
               </p>
               <br />
-              <button className=" flex justify-center items-center align-middle w-[500px] h-[40px] p-[12px] border-2 rounded-lg ">
-                {" "}
-              </button>
+              <input className=" flex justify-center items-center align-middle w-[500px] h-[40px] p-[12px] border-2 rounded-lg outline-none hover:border-[rgb(47_58_178)]  " />
             </div>
             <div id="paswordLogin" className="pt-2 pb-2">
               <p className=" flex flex-initial  w-[100px] h-[20px] text-center  text-[rgb(5,5,5)] font-semibold">
                 Password<span className="text-[rgb(220_38_38)] text-xl">*</span>
               </p>
               <br />
-              <button className=" flex justify-center items-center align-middle w-[500px] h-[40px] p-[12px] border-2 rounded-lg  ">
-                {" "}
-              </button>
+              <input className=" flex justify-center items-center align-middle w-[500px] h-[40px] p-[12px] border-2 rounded-lg outline-none hover:border-[rgb(47_58_178)]  " />
               <div id="confirmaLogin" className="pt-2 pb-2">
                 <p className=" flex flex-initial pb-2  w-[200px] h-[20px]  text-[rgb(5,5,5)] font-semibold">
                   Pasaword Confirmation
                   <span className="text-[rgb(220_38_38)] text-xl">*</span>
                 </p>
                 <br />
-                <button className=" flex justify-center items-center align-middle w-[500px] h-[40px] p-[12px] border-2 rounded-lg  ">
-                  {" "}
-                </button>
+                <input className=" flex justify-center items-center align-middle w-[500px] h-[40px] p-[12px] border-2 rounded-lg  outline-none hover:border-[rgb(47_58_178)] " />
               </div>
               <button className="hover:bg-[rgb(47_58_178)] p-[8px_16px] bg-[rgb(59_73_223)]  min-w-[95px] text-center  text-[rgb(255_255_255)] rounded-lg  font-semibold">
                 Sing Up

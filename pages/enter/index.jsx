@@ -27,11 +27,11 @@ export default function Enter() {
           </p>
           <p>DEV Community is a community of 1,394,581 amazing developers</p>
         </div>
-        <div className="w-[580px] items-center align-middle h-[50px] pt-[12]">
+        <div className="w-[580px] items-center align-middle h-[50px] pt-[12] flex flex-col">
           {enterLoginBoton.map((item, index) => {
             return (
               <div
-                className="w-min-[40px] min-w-[301.368px]  h-min-[40px] p-1.5 rounded-md flex items-center text-justify align-middle text-sm font-semibold "
+                className=" flex flex-col w-min-[40px] min-w-[301.368px] p-1.5 rounded-md items-center text-justify align-middle text-sm font-semibold "
                 id="redes"
               >
                 <EnterBoton

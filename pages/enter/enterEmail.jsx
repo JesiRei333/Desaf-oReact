@@ -59,7 +59,7 @@ export default function EnterMail() {
             <br />
             <input
               type="text"
-              className=" flex flex-row text-sm font-light justify-center items-center align-middle w-[580px] h-[38px] border-2 rounded-lg p-1 hover:border-[rgb(47_58_178)] "
+              className=" flex flex-row text-sm font-light justify-center items-center align-middle w-[580px] h-[38px] border-2 rounded-lg p-1 hover:border-[rgb(47_58_178)] outline-none  "
             />
             <p className=" flex w-[100px] h-[20px] text-center pt-4 pb-4 text-base  ">
               Password{" "}
@@ -67,7 +67,7 @@ export default function EnterMail() {
             <br />
             <input
               type="password"
-              className=" flex flex-row text-sm font-light justify-center items-center align-middle w-[580px] h-[38px] border-2 rounded-lg p-1 hover:border-[rgb(47_58_178)] "
+              className=" flex flex-row text-sm font-light justify-center items-center align-middle w-[580px] h-[38px] border-2 rounded-lg p-1 hover:border-[rgb(47_58_178)] outline-none "
             />
             <br />
             <button className="hover:bg-[rgb(47_58_178)] bg-[rgb(59_73_223)] p-3 text-center text-base text-[rgb(255_255_255)] rounded-lg  ">
