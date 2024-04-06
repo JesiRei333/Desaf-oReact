@@ -17,11 +17,24 @@ export default function Post() {
   } = useForm();
 
   async function onSubmit(dataPost) {
+    fetch("http://localhost:3001/post", {
+      method: "Post",
+      body: JSON.stringify({
+        articuloPost: dataPost.articuloPost,
+        articuloTitulo: dataPost.articuloTitulo,
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((response) => response.json())
+      .then((json) => console.log(json));
     localStorage.setItem("formData", JSON.stringify(dataPost));
     reset();
     router.push("/");
     return;
   }
+
   return (
     <main className=" h-full w-full min-h-screen min-w-screen   ">
       <nav className=" flex justify-center bg-[rgb(245_245_245)] min-h-[55.990px] min-w-full align-middle items-center ">
