@@ -12,15 +12,32 @@ export default function EnterMail() {
   const {
     handleSubmit,
     register,
-    reset,
+    setError,
+
     formState: { errors },
   } = useForm();
 
-  async function onSubmit(dataEnter) {
-    localStorage.setItem("enter", JSON.stringify(dataEnter));
-    reset();
-    router.push("/");
-    return;
+  async function onSubmit(dataLogIn) {
+    const response = await fetch("http://localhost:3001/users/login", {
+      method: "Post",
+      body: JSON.stringify({
+        email: dataLogIn.email,
+        password: dataLogIn.password,
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    });
+
+    const json = await response.json();
+    if (json.data) {
+      localStorage.setItem("dataLogIn", JSON.stringify(dataLogIn));
+      localStorage.setItem("token", json.data);
+      router.push("/");
+      return;
+    }
+    console.log("Usuario o contraseña inválidos");
+    setError("root", { message: "Usuario o contraseña inválidos" });
   }
 
   return (
@@ -78,10 +95,10 @@ export default function EnterMail() {
               <br />
               <input
                 required
-                name="Email"
+                name="email"
                 type="text"
                 className=" flex flex-row text-sm font-light justify-center items-center align-middle w-[580px] h-[38px] border-2 rounded-lg p-1 hover:border-[rgb(47_58_178)] outline-none  "
-                {...register("Email", {
+                {...register("email", {
                   minLength: {
                     value: 3,
                     message: "Email o password inválido",
@@ -95,10 +112,10 @@ export default function EnterMail() {
               <br />
               <input
                 required
-                name="Password"
+                name="password"
                 type="password"
                 className=" flex flex-row text-sm font-light justify-center items-center align-middle w-[580px] h-[38px] border-2 rounded-lg p-1 hover:border-[rgb(47_58_178)] outline-none "
-                {...register("Password", {
+                {...register("password", {
                   minLength: {
                     value: 3,
                     message: "Email o password inválido",
@@ -106,16 +123,24 @@ export default function EnterMail() {
                 })}
               />
               <div id="errorPasswordEmail" className="p-1">
-                {(errors.Password || errors.Email) && (
+                {(errors.password || errors.email) && (
                   <p
                     className=" text-base flex justify-center items-center "
                     id="letra"
                   >
-                    {"⚠ "} {errors.Password.message}
+                    {"⚠ "} {errors.password.message}
                   </p>
                 )}
               </div>
               <br />
+              {errors.root && (
+                <p
+                  className=" text-base flex justify-center items-center "
+                  id="letra"
+                >
+                  {"⚠ "} {errors.root.message}
+                </p>
+              )}
               <button className="hover:bg-[rgb(47_58_178)] bg-[rgb(59_73_223)] p-3 text-center text-base text-[rgb(255_255_255)] rounded-lg  ">
                 Log in
               </button>

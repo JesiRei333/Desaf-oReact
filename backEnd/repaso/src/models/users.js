@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 
 const userSchema = new mongoose.Schema(
   {
-    name: {
+    nameLogin: {
       type: String,
       required: true,
       //match: [/^[A-Za-z]+$/, "Character not valid"],
@@ -16,7 +16,7 @@ const userSchema = new mongoose.Schema(
     email: {
       type: String,
       required: true,
-      unique: true,
+      //unique: true,
       //match: [/^[\w-.]+@([\w-]+.)+[\w-]{2,4}$/, "Email not valid"],
     },
     password: {
@@ -25,17 +25,18 @@ const userSchema = new mongoose.Schema(
     },
   },
   {
-    timestamps: true,
+    timestamps: true, //con esto activa el registro de fechas
     statics: {
       encryptPassword: async (password) => {
-        const salt = await bcrypt.genSalt(15);
+        const salt = await bcrypt.genSalt(15); //cifra
         return await bcrypt.hash(password, salt);
       },
       isValidPassword: async (password, hash) => {
         return await bcrypt.compare(password, hash);
       },
       createToken: async (payload) => {
-        return jwt.sign(payload, process.env.JWT_SIGN, { expiresIn: "1h" });
+        const token = process.env.JWT_SIGN;
+        return jwt.sign(payload, token, { expiresIn: "2d" }); //expires el tiempo 30d 1hr
       },
     },
   }

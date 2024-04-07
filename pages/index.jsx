@@ -18,14 +18,14 @@ import BotonHeaderMid from "@/src/components/botonHeaderMid";
 import { botonesHeaderMid } from "@/src/constants/botonesHeaderMid";
 import { botonesHeaderMidDerecha } from "@/src/constants/botonHeaderMidDerecha";
 import Nav from "./nav";
-
+import { texto } from "./nav";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const [post, setPost] = useState({});
-  const [postDelete, setPostDelete] = useState({});
+
   const router = useRouter();
 
   useEffect(() => {

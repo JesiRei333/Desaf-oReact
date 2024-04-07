@@ -16,6 +16,13 @@ export default function Post() {
     formState: { errors },
   } = useForm();
 
+  // async function onSubmit(dataPost) {
+  //localStorage.setItem("formData", JSON.stringify(dataPost));
+  // reset();
+  // router.push("/");
+  // return;
+  // }
+
   async function onSubmit(dataPost) {
     fetch("http://localhost:3001/post", {
       method: "Post",

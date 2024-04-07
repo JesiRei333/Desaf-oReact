@@ -3,6 +3,27 @@ import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
 
 export default function Enter() {
+  async function onSubmit(dataLog) {
+    fetch("http://localhost:3001/users/enter", {
+      method: "Post",
+      body: JSON.stringify({
+        nameLogin: dataLog.nameLogin,
+        email: dataLog.email,
+        username: dataLog.username,
+        password: dataLog.password,
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((response) => response.json())
+      .then((json) => console.log(json));
+    localStorage.setItem("dataLog", JSON.stringify(dataLog));
+    reset();
+    router.push("/");
+    return;
+  }
+
   const router = useRouter();
 
   const {
@@ -11,13 +32,6 @@ export default function Enter() {
     reset,
     formState: { errors },
   } = useForm();
-
-  async function onSubmit(dataLogin) {
-    localStorage.setItem("registro", JSON.stringify(dataLogin));
-    reset();
-    router.push;
-    return;
-  }
 
   return (
     <main>
@@ -55,9 +69,9 @@ export default function Enter() {
                 <br />
                 <input
                   required
-                  name="nameIn"
+                  name="nameLogin"
                   className=" flex justify-center items-center align-middle w-[500px] h-[35px] p-[12px] border-2 rounded-lg outline-none hover:border-[rgb(47_58_178)] "
-                  {...register("nameIn", {
+                  {...register("nameLogin", {
                     minLength: {
                       value: 3,
                       message: "Tu nombre debe tener al menos 3 caracteres",
@@ -65,12 +79,12 @@ export default function Enter() {
                   })}
                 />
                 <div id="errordeName" className="p-1">
-                  {errors.nameIn && (
+                  {errors.nameLogin && (
                     <p
                       className=" text-base flex justify-center items-center "
                       id="letra"
                     >
-                      {"⚠ "} {errors.nameIn.message}
+                      {"⚠ "} {errors.nameLogin.message}
                     </p>
                   )}
                 </div>
@@ -83,9 +97,9 @@ export default function Enter() {
                   <br />
                   <input
                     required
-                    name="Username"
+                    name="username"
                     className=" flex justify-center items-center align-middle w-[500px] h-[40px] p-[12px] border-2 rounded-lg outline-none hover:border-[rgb(47_58_178)] "
-                    {...register("Username", {
+                    {...register("username", {
                       minLength: {
                         value: 3,
                         message: "Tu Username debe tener al menos 3 caracteres",
@@ -93,12 +107,12 @@ export default function Enter() {
                     })}
                   />
                   <div id="errordeUsername" className="p-1">
-                    {errors.Username && (
+                    {errors.username && (
                       <p
                         className=" text-base flex justify-center items-center "
                         id="letra"
                       >
-                        {"⚠ "} {errors.Username.message}
+                        {"⚠ "} {errors.username.message}
                       </p>
                     )}
                   </div>
@@ -112,9 +126,9 @@ export default function Enter() {
                   <br />
                   <input
                     required
-                    name="Email"
+                    name="email"
                     className=" flex justify-center items-center align-middle w-[500px] h-[40px] p-[12px] border-2 rounded-lg outline-none hover:border-[rgb(47_58_178)]  "
-                    {...register("Email", {
+                    {...register("email", {
                       minLength: {
                         value: 3,
                         message: "Tu Email debe tener al menos 3 caracteres",
@@ -122,12 +136,12 @@ export default function Enter() {
                     })}
                   />
                   <div id="errordeEmail" className="p-1">
-                    {errors.Email && (
+                    {errors.email && (
                       <p
                         className=" text-base flex justify-center items-center "
                         id="letra"
                       >
-                        {"⚠ "} {errors.Email.message}
+                        {"⚠ "} {errors.email.message}
                       </p>
                     )}
                   </div>
@@ -142,9 +156,9 @@ export default function Enter() {
                   <input
                     type="password"
                     required
-                    name="Password"
+                    name="password"
                     className=" flex justify-center items-center align-middle w-[500px] h-[40px] p-[12px] border-2 rounded-lg outline-none hover:border-[rgb(47_58_178)]  "
-                    {...register("Password", {
+                    {...register("password", {
                       minLength: {
                         value: 3,
                         message: "Tu Password debe tener al menos 3 caracteres",
@@ -152,12 +166,12 @@ export default function Enter() {
                     })}
                   />
                   <div id="errordePassword" className="p-1">
-                    {errors.Password && (
+                    {errors.password && (
                       <p
                         className=" text-base flex justify-center items-center "
                         id="letra"
                       >
-                        {"⚠ "} {errors.Password.message}
+                        {"⚠ "} {errors.password.message}
                       </p>
                     )}
                   </div>
@@ -170,6 +184,7 @@ export default function Enter() {
                   </p>
                   <br />
                   <input
+                    name="passwordConfirmation"
                     type="password"
                     required
                     className=" flex justify-center items-center align-middle w-[500px] h-[40px] p-[12px] border-2 rounded-lg  outline-none hover:border-[rgb(47_58_178)] "
