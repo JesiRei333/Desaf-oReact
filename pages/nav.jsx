@@ -1,6 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
-export default function Nav() {
+import { useState } from "react";
+
+export default function Nav(props) {
+  const [texto, setTexto] = useState("");
+
   return (
     <nav className=" fixed flex justify-center bg-[rgb(245_245_245)] border-[1.5px] min-h-[55.990px] min-w-full align-middle ">
       <div className="flex relative justify-center align-middle items-center ">
@@ -44,6 +48,9 @@ export default function Nav() {
               placeholder="Serch..."
               autoComplete="off"
               aria-label="Serch term"
+              onChange={(event) => {
+                props.setTexto(event.target.value);
+              }}
             />
 
             <button className=" min-h-full bg-[rgb(0_0_0/0%] hover:bg-[rgb(59_73_223/10%)] hover:brightness-200 ">

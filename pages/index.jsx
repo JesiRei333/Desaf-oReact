@@ -19,15 +19,38 @@ import { botonesHeaderMid } from "@/src/constants/botonesHeaderMid";
 import { botonesHeaderMidDerecha } from "@/src/constants/botonHeaderMidDerecha";
 import Nav from "./nav";
 
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  //let dato = localStorage.getItem("formData") || [];
-  //console.log(dato.articuloPost);
+  const [post, setPost] = useState({});
+  const [texto, setTexto] = useState("");
+
+  const router = useRouter();
+
+  useEffect(() => {
+    fetch("http://localhost:3001/post", {
+      method: "Get",
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        setPost(json);
+      })
+      .catch((error) => {
+        console.log("Error", error);
+      });
+  }, []);
+
+  if (!post.data) {
+    return (
+      <article className="w-full bg-slate-800 animate-pulse min-h-20"></article>
+    );
+  }
 
   return (
     <main>
-      <Nav />
+      <Nav texto={texto} setTexto={setTexto} />
       <div className="flex justify-center items-center align-middle  bg-[rgb(245_245_245)] p-[55.990px]  text-[rgb(64_64_64)] ">
         <div className="flex justify-center   ">
           <div
@@ -171,11 +194,26 @@ export default function Home() {
               </p>
             </div>
 
-            <div className=" flex border-[0.5px] max-w-[555.656px]  md:min-w-[610.656px] pl-20 sm:pl-12 md:pl-0  border-[rgba(82,82,82,0.14)] rounded-md mb-1 ">
-              <PostMid
-                className="flex hover:bg-[rgba(113,234,139,0.14)] hover:border-1 p-[8px_16px]  "
-                titulo={"Esto es un post"}
-              />
+            <div className=" flex flex-col border-[0.5px] max-w-[555.656px]  md:min-w-[610.656px] pl-20 sm:pl-12 md:pl-0  border-[rgba(82,82,82,0.14)] rounded-md mb-1 ">
+              {post.data
+                .map((data, index) => data.articuloTitulo)
+                .filter((titulo) =>
+                  titulo
+                    .replace(/\W/g, "")
+                    .toLowerCase()
+                    .includes(texto.toLowerCase().replace(/\W/g, ""))
+                )
+                .map((item, index) => {
+                  return (
+                    <div className="border-2">
+                      <PostMid
+                        key={`extoConHiper-${index}`}
+                        className="flex hover:bg-[rgba(113,234,139,0.14)] hover:border-1 p-[8px_16px]  "
+                        titulo={item}
+                      />
+                    </div>
+                  );
+                })}
             </div>
           </div>
           <div
