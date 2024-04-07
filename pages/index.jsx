@@ -17,6 +17,7 @@ import PostMid from "@/src/components/postMid";
 import BotonHeaderMid from "@/src/components/botonHeaderMid";
 import { botonesHeaderMid } from "@/src/constants/botonesHeaderMid";
 import { botonesHeaderMidDerecha } from "@/src/constants/botonHeaderMidDerecha";
+
 import Nav from "./nav";
 
 import { useEffect, useState } from "react";
