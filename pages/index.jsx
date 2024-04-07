@@ -197,7 +197,7 @@ export default function Home() {
 
             <div className=" flex flex-col border-[0.5px] max-w-[555.656px]  md:min-w-[610.656px] pl-20 sm:pl-12 md:pl-0  border-[rgba(82,82,82,0.14)] rounded-md mb-1 ">
               {post.data
-                .sort((a, b) => b.createdAt - a.reatedAt)
+                //.sort((a, b) => b.createdAt - a.reatedAt)
                 .map((data, index) => data.articuloTitulo)
                 .filter((titulo) =>
                   titulo
