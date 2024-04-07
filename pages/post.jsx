@@ -33,10 +33,8 @@ export default function Post() {
       headers: {
         "Content-type": "application/json; charset=UTF-8",
       },
-    })
-      .then((response) => response.json())
-      .then((json) => console.log(json));
-    localStorage.setItem("formData", JSON.stringify(dataPost));
+    }).then((response) => response.json());
+
     reset();
     router.push("/");
     return;

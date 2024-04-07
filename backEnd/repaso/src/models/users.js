@@ -26,7 +26,7 @@ const userSchema = new mongoose.Schema(
     },
   },
   {
-    timestamps: true, //con esto activa el registro de fechas
+    timestamps: true,
     statics: {
       encryptPassword: async (password) => {
         const salt = await bcrypt.genSalt(15); //cifra
@@ -37,7 +37,7 @@ const userSchema = new mongoose.Schema(
       },
       createToken: async (payload) => {
         const token = process.env.JWT_SIGN;
-        return jwt.sign(payload, token, { expiresIn: "2d" }); //expires el tiempo 30d 1hr
+        return jwt.sign(payload, token, { expiresIn: "2d" });
       },
     },
   }

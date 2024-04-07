@@ -13,7 +13,6 @@ export default function EnterMail() {
     handleSubmit,
     register,
     setError,
-
     formState: { errors },
   } = useForm();
 
@@ -30,9 +29,9 @@ export default function EnterMail() {
     });
 
     const json = await response.json();
-    if (json.data) {
-      localStorage.setItem("dataLogIn", JSON.stringify(dataLogIn));
-      localStorage.setItem("token", json.data);
+    if (json.token) {
+      localStorage.setItem("token", json.token);
+      console.log("Login Exitoso");
       router.push("/");
       return;
     }

@@ -20,15 +20,13 @@ router.post("/login", async (req, res) => {
     const user = await User.findOne({ email: email }); //busca por correo
 
     if (!user || !(await User.isValidPassword(password, user.password))) {
-      //primero recibe texto plano y luego el hash en ese orden
       res.status(401).send({ message: "password or email invalid " });
     } else {
-      //TODO create token
       const token = await User.createToken({
         _id: user._id,
         username: user.username,
       });
-      res.status(201).send({ message: "Login Success", data: token });
+      res.status(201).send({ message: "Login Success", token: token });
     }
   } catch (error) {
     res.status(400).send({ message: error });
