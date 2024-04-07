@@ -1,9 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import clsx from "clsx";
 
 export default function Nav(props) {
   const [texto, setTexto] = useState("");
+
+  const token = localStorage.getItem("token");
 
   return (
     <nav className=" fixed flex justify-center bg-[rgb(245_245_245)] border-[1.5px] min-h-[55.990px] min-w-full align-middle ">
@@ -77,21 +80,42 @@ export default function Nav(props) {
               />
             </button>
           </div>
-          <Link href="/enter/enterEmail">
-            <button className="hidden md:flex hover:bg-[rgb(59_73_223/10%)] p-[8px_16px] text-center min-w-[39px] hover:text-[rgb(47_58_178)] rounded-md">
-              Log in
-            </button>
-          </Link>
-          <Link href="/enter">
-            <button className="hover:bg-[rgb(59_73_223)] p-[8px_16px] min-w-[95px] text-center text-[rgb(59_73_223)] hover:text-[rgb(255_255_255)] border-[rgb(59_73_223)] border-2 rounded-lg  font-semibold">
-              Create account
-            </button>
-          </Link>
-          <Link href="/post">
-            <button className="hover:bg-[rgb(59_73_223)] p-[8px_16px] min-w-[95px] text-center text-[rgb(59_73_223)] hover:text-[rgb(255_255_255)] border-[rgb(59_73_223)] border-2 rounded-lg  font-semibold">
-              post
-            </button>
-          </Link>
+
+          <div
+            className={clsx("", {
+              hidden: token,
+            })}
+          >
+            <Link href="/enter/enterEmail">
+              <button className="hidden md:flex hover:bg-[rgb(59_73_223/10%)] p-[8px_16px] text-center min-w-[39px] hover:text-[rgb(47_58_178)] rounded-md">
+                Log in
+              </button>
+            </Link>
+          </div>
+
+          <div
+            className={clsx("", {
+              hidden: token,
+            })}
+          >
+            <Link href="/enter">
+              <button className="hover:bg-[rgb(59_73_223)] p-[8px_16px] min-w-[95px] text-center text-[rgb(59_73_223)] hover:text-[rgb(255_255_255)] border-[rgb(59_73_223)] border-2 rounded-lg  font-semibold">
+                Create account
+              </button>
+            </Link>
+          </div>
+
+          <div
+            className={clsx("", {
+              hidden: !token,
+            })}
+          >
+            <Link href="/post">
+              <button className="hover:bg-[rgb(59_73_223)] p-[8px_16px] min-w-[95px] text-center text-[rgb(59_73_223)] hover:text-[rgb(255_255_255)] border-[rgb(59_73_223)] border-2 rounded-lg  font-semibold">
+                Create post
+              </button>
+            </Link>
+          </div>
         </div>
       </div>
     </nav>
