@@ -24,9 +24,11 @@ router.post("/login", async (req, res) => {
       res.status(401).send({ message: "password or email invalid " });
     } else {
       //TODO create token
-      const token = user._id + user.username;
-
-      res.status(200).send({ message: "loging seccess", data: token });
+      const token = await User.createToken({
+        _id: user._id,
+        username: user.username,
+      });
+      res.status(201).send({ message: "Login Success", data: token });
     }
   } catch (error) {
     res.status(400).send({ message: error });

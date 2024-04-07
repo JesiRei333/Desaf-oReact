@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 
-export default function Nav() {
+export default function Nav(props) {
   const [texto, setTexto] = useState("");
 
   return (
@@ -49,7 +49,7 @@ export default function Nav() {
               autoComplete="off"
               aria-label="Serch term"
               onChange={(event) => {
-                setTexto(event.target.value);
+                props.setTexto(event.target.value);
               }}
             />
 
