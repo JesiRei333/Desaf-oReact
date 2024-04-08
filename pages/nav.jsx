@@ -5,6 +5,8 @@ import { useState } from "react";
 export default function Nav(props) {
   const [texto, setTexto] = useState("");
 
+  const token = localStorage.getItem("token");
+
   return (
     <nav className=" fixed flex justify-center bg-[rgb(245_245_245)] border-[1.5px] min-h-[55.990px] min-w-full align-middle ">
       <div className="flex relative justify-center align-middle items-center ">
@@ -77,30 +79,33 @@ export default function Nav(props) {
               />
             </button>
           </div>
-
-          <div className="">
-            <Link href="/enter/enterEmail">
-              <button className="hidden md:flex hover:bg-[rgb(59_73_223/10%)] p-[8px_16px] text-center min-w-[39px] hover:text-[rgb(47_58_178)] rounded-md">
-                Log in
-              </button>
-            </Link>
-          </div>
-
-          <div className="">
-            <Link href="/enter">
-              <button className="hover:bg-[rgb(59_73_223)] p-[8px_16px] min-w-[95px] text-center text-[rgb(59_73_223)] hover:text-[rgb(255_255_255)] border-[rgb(59_73_223)] border-2 rounded-lg  font-semibold">
-                Create account
-              </button>
-            </Link>
-          </div>
-
-          <div className="">
-            <Link href="/post">
-              <button className="hover:bg-[rgb(59_73_223)] p-[8px_16px] min-w-[95px] text-center text-[rgb(59_73_223)] hover:text-[rgb(255_255_255)] border-[rgb(59_73_223)] border-2 rounded-lg  font-semibold">
-                Create post
-              </button>
-            </Link>
-          </div>
+          {!token && (
+            <div className="">
+              <Link href="/enter/enterEmail">
+                <button className="hidden md:flex hover:bg-[rgb(59_73_223/10%)] p-[8px_16px] text-center min-w-[39px] hover:text-[rgb(47_58_178)] rounded-md">
+                  Log in
+                </button>
+              </Link>
+            </div>
+          )}
+          {!token && (
+            <div className="">
+              <Link href="/enter">
+                <button className="hover:bg-[rgb(59_73_223)] p-[8px_16px] min-w-[95px] text-center text-[rgb(59_73_223)] hover:text-[rgb(255_255_255)] border-[rgb(59_73_223)] border-2 rounded-lg  font-semibold">
+                  Create account
+                </button>
+              </Link>
+            </div>
+          )}
+          {!!token && (
+            <div className="">
+              <Link href="/post">
+                <button className="hover:bg-[rgb(59_73_223)] p-[8px_16px] min-w-[95px] text-center text-[rgb(59_73_223)] hover:text-[rgb(255_255_255)] border-[rgb(59_73_223)] border-2 rounded-lg  font-semibold">
+                  Create post
+                </button>
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </nav>
