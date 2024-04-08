@@ -5,10 +5,11 @@ import { enterLoginContinue } from "@/src/constants/enterLoginContinue";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
-
+import { useState } from "react";
+import Nav from "../nav";
 export default function EnterMail() {
   const router = useRouter();
-
+  const [token, setToken] = useState("");
   const {
     handleSubmit,
     register,
@@ -31,6 +32,7 @@ export default function EnterMail() {
     const json = await response.json();
     if (json.token) {
       localStorage.setItem("token", json.token);
+      setToken(true);
       console.log("Login Exitoso");
       router.push("/");
       return;
@@ -45,6 +47,9 @@ export default function EnterMail() {
         className="flex h-full w-full min-h-[530px] min-w-screen   items-center  align-middle flex-col  rounded-md pt-10
     "
       >
+        <div className="hidden">
+          <Nav token={token} setToken={setToken} />
+        </div>
         <div className="flex w-[530px] flex-col items-center rounded-md pb-[20px]">
           <Link href="/">
             <Image
