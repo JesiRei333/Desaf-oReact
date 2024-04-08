@@ -36,7 +36,7 @@ export default function Post() {
     }).then((response) => response.json());
 
     reset();
-    router.push("/");
+    router.push("/usuarioIndex");
     return;
   }
 
@@ -44,7 +44,7 @@ export default function Post() {
     <main className=" h-full w-full min-h-screen min-w-screen   ">
       <nav className=" flex justify-center bg-[rgb(245_245_245)] min-h-[55.990px] min-w-full align-middle items-center ">
         <div className=" flex flex-row justify-center items-center  md:pr-60  ">
-          <Link href="/">
+          <Link href="/usuarioIndex">
             <div className="flex justify-center align-middle max-h-[40px] min-w-[50px]  ">
               <Image
                 className=""

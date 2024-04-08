@@ -1,6 +1,7 @@
 import Nav from "../nav";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 export default function Enter() {
   async function onSubmit(dataLog) {
@@ -17,7 +18,11 @@ export default function Enter() {
       },
     })
       .then((response) => response.json())
-      .then((json) => console.log(json));
+      .then((json) => console.log(json))
+      .catch((error) => {
+        console.log("Error", error);
+      });
+
     localStorage.setItem("dataLog", JSON.stringify(dataLog));
     reset();
     router.push("/");

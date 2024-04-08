@@ -5,7 +5,6 @@ import { enterLoginContinue } from "@/src/constants/enterLoginContinue";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
-
 export default function EnterMail() {
   const router = useRouter();
 
@@ -26,13 +25,16 @@ export default function EnterMail() {
       headers: {
         "Content-type": "application/json; charset=UTF-8",
       },
+    }).catch((error) => {
+      console.log("Error", error);
     });
 
     const json = await response.json();
     if (json.token) {
       localStorage.setItem("token", json.token);
+
       console.log("Login Exitoso");
-      router.push("/");
+      router.push("/usuarioIndex");
       return;
     }
     console.log("Usuario o contraseña inválidos");
