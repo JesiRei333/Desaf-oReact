@@ -31,6 +31,7 @@ export default function Enter() {
           {enterLoginBoton.map((item, index) => {
             return (
               <div
+                key={`enterLoginBoton-${index}`}
                 className=" flex flex-col w-min-[40px] min-w-[301.368px] p-1.5 rounded-md items-center text-justify align-middle text-sm font-semibold "
                 id="redes"
               >

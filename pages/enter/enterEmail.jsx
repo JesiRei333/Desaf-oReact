@@ -72,6 +72,7 @@ export default function EnterMail() {
           {enterLoginContinue.map((item, index) => {
             return (
               <div
+                key={`enterLoginBoton-${index}`}
                 className="w-min-[40px] min-w-[301.368px]  h-min-[40px] p-1.5 rounded-md flex items-center text-justify align-middle text-sm font-semibold "
                 id="redes"
               >

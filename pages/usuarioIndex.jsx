@@ -98,6 +98,7 @@ export default function HomeUsuario() {
               {redes.map((item, index) => {
                 return (
                   <div
+                    key={`redes-${index}`}
                     className="w-min-[40px] h-min-[40px] rounded-md flex items-center p-[8px] pr-[5px] align-middle no-underline "
                     id="redes"
                   >
@@ -119,6 +120,7 @@ export default function HomeUsuario() {
               {linkHastag.map((item, index) => {
                 return (
                   <div
+                    key={`linkHastag-${index}`}
                     className="w-min-[40px] h-min-[40px] rounded-md flex items-center  align-middle no-underline "
                     id="redes"
                   >
@@ -147,6 +149,7 @@ export default function HomeUsuario() {
                 {botonesHeaderMid.map((item, index) => {
                   return (
                     <div
+                      key={`botonesHeaderMid-${index}`}
                       className="rounded-md flex items-center text-justify align-middle  md:pl-[8px]  p-[0px_5px] hover:text-[rgb(59,73,223)]  "
                       id="redes"
                     >
@@ -165,6 +168,7 @@ export default function HomeUsuario() {
                 {botonesHeaderMidDerecha.map((item, index) => {
                   return (
                     <div
+                      key={`botonesHeaderMidDerecha-${index}`}
                       className="rounded-md flex items-center  text-justify align-middle p-[0px_5px] hover:text-[rgb(59,73,223)]   "
                       id="redes"
                     >
@@ -229,7 +233,7 @@ export default function HomeUsuario() {
                 )
                 .map((item, index) => {
                   return (
-                    <div className="border-2">
+                    <div key={`extoConHiper-${index}`} className="border-2">
                       <PostMid
                         key={`extoConHiper-${index}`}
                         className="flex hover:bg-[rgba(113,234,139,0.14)] hover:border-1 p-[8px_16px]  "
@@ -258,6 +262,7 @@ export default function HomeUsuario() {
                 {textoConHiper.map((item, index) => {
                   return (
                     <div
+                      key={`extoConHiper-${index}`}
                       className="md:w-min-[40px] md:min-w-[301.368px]  md:h-min-[40px] rounded-md flex items-center text-justify align-middle   "
                       id="redes"
                     >
@@ -278,6 +283,7 @@ export default function HomeUsuario() {
                 {discussWater.map((item, index) => {
                   return (
                     <div
+                      key={`discussWater-${index}`}
                       className="w-min-[40px] h-min-[40px] rounded-md flex items-center text-base  text-justify align-middle  "
                       id="redes"
                     >

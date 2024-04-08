@@ -1,12 +1,11 @@
 import Nav from "../nav";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
 
 export default function Enter() {
   async function onSubmit(dataLog) {
-    fetch("https://nextdevrep-2044e667dfb2.herokuapp.com/users/enter", {
-      //fetch("http://localhost:3001/users/enter", {
+    // fetch("https://nextdevrep-2044e667dfb2.herokuapp.com/users/enter", {
+    fetch("http://localhost:3001/users/enter", {
       method: "Post",
       body: JSON.stringify({
         nameLogin: dataLog.nameLogin,

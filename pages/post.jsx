@@ -122,6 +122,7 @@ export default function Post() {
               {botonPost.map((item, index) => {
                 return (
                   <div
+                    key={`BotonPost-${index}`}
                     className=" rounded-md flex items-center text-justify align-middle text-sm font-semibold "
                     id="redes"
                   >
