@@ -24,7 +24,8 @@ export default function Post() {
   // }
 
   async function onSubmit(dataPost) {
-    fetch("http://localhost:3001/post", {
+    fetch("https://nextdevrep-2044e667dfb2.herokuapp.com/post", {
+      //fetch("http://localhost:3001/post", {
       method: "Post",
       body: JSON.stringify({
         articuloPost: dataPost.articuloPost,

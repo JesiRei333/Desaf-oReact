@@ -17,9 +17,7 @@ import PostMid from "@/src/components/postMid";
 import BotonHeaderMid from "@/src/components/botonHeaderMid";
 import { botonesHeaderMid } from "@/src/constants/botonesHeaderMid";
 import { botonesHeaderMidDerecha } from "@/src/constants/botonHeaderMidDerecha";
-
 import Nav from "./nav";
-
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 const inter = Inter({ subsets: ["latin"] });
@@ -31,7 +29,8 @@ export default function Home() {
   const router = useRouter();
 
   useEffect(() => {
-    fetch("http://localhost:3001/post", {
+    fetch("https://nextdevrep-2044e667dfb2.herokuapp.com/post", {
+      //fetch("http://localhost:3001/post", {
       method: "Get",
     })
       .then((response) => response.json())
