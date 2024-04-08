@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 
-export default function Nav(props) {
+export default function NavUsuario(props) {
   const [texto, setTexto] = useState("");
   const [token, setToken] = useState("");
 
@@ -22,7 +22,7 @@ export default function Nav(props) {
         </div>
 
         <div className="pr-[16px]">
-          <Link href="/">
+          <Link href="/usuarioIndex">
             <div className="flex justify-center align-middle max-h-[40px] min-w-[50px]  ">
               <Image
                 className=""
@@ -79,7 +79,7 @@ export default function Nav(props) {
             </button>
           </div>
 
-          <div className="">
+          <div className="hidden">
             <Link href="/enter/enterEmail">
               <button className="hidden md:flex hover:bg-[rgb(59_73_223/10%)] p-[8px_16px] text-center min-w-[39px] hover:text-[rgb(47_58_178)] rounded-md">
                 Log in
@@ -87,7 +87,7 @@ export default function Nav(props) {
             </Link>
           </div>
 
-          <div className="">
+          <div className="hidden">
             <Link href="/enter">
               <button className="hover:bg-[rgb(59_73_223)] p-[8px_16px] min-w-[95px] text-center text-[rgb(59_73_223)] hover:text-[rgb(255_255_255)] border-[rgb(59_73_223)] border-2 rounded-lg  font-semibold">
                 Create account

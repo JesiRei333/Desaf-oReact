@@ -9,6 +9,7 @@ const nextConfig = {
       "pokeapi.co",
       "dev-to-uploads.s3.amazonaws.com",
       "res.cloudinary.com",
+      "media.dev.to",
     ],
   },
 };
