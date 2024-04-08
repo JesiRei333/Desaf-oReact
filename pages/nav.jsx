@@ -1,12 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect } from "react";
-import clsx from "clsx";
+import { useState } from "react";
 
 export default function Nav(props) {
   const [texto, setTexto] = useState("");
-
-  const token = localStorage.getItem("token");
 
   return (
     <nav className=" fixed flex justify-center bg-[rgb(245_245_245)] border-[1.5px] min-h-[55.990px] min-w-full align-middle ">
