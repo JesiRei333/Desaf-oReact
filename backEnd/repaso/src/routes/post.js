@@ -26,10 +26,20 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const post = await Post.findById(id);
+    res.send({ message: "Message deleted", data: post });
+  } catch (error) {
+    res.status(400).send({ message: error });
+  }
+});
+
 router.delete("/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    await Posts.findByIdAndDelete(id);
+    await Post.findByIdAndDelete(id);
     res.send({ message: "Message deleted" });
   } catch (error) {
     res.status(400).send({ message: error });

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
-//import Link from "next/link";
+import Link from "next/link";
 import AsideLLink from "@/src/components/linkAsideL";
 import { parrafo } from "@/src/constants/parrafoAsideL";
 import { parrafoBot } from "@/src/constants/parrafoAsideLBot";
@@ -20,6 +20,7 @@ import { botonesHeaderMidDerecha } from "@/src/constants/botonHeaderMidDerecha";
 import Nav from "./nav";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import Detalles from "./detallesDepost";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
@@ -195,25 +196,19 @@ export default function Home() {
             </div>
 
             <div className=" flex flex-col border-[0.5px] max-w-[555.656px]  md:min-w-[610.656px] pl-20 sm:pl-12 md:pl-0  border-[rgba(82,82,82,0.14)] rounded-md mb-1 ">
-              {post.data
-                .map((data, index) => data.articuloTitulo)
-                .filter((titulo) =>
-                  titulo
-                    .replace(/\W/g, "")
-                    .toLowerCase()
-                    .includes(texto.toLowerCase().replace(/\W/g, ""))
-                )
-                .map((item, index) => {
-                  return (
+              {post.data.map((posT, index) => {
+                return (
+                  <Link href={`/detallesDepost/${posT._id}`}>
                     <div className="border-2">
                       <PostMid
                         key={`extoConHiper-${index}`}
                         className="flex hover:bg-[rgba(113,234,139,0.14)] hover:border-1 p-[8px_16px]  "
-                        titulo={item}
+                        articuloTitulo={posT.articuloTitulo}
                       />
                     </div>
-                  );
-                })}
+                  </Link>
+                );
+              })}
             </div>
           </div>
           <div

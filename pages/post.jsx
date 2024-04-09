@@ -16,13 +16,6 @@ export default function Post() {
     formState: { errors },
   } = useForm();
 
-  // async function onSubmit(dataPost) {
-  //localStorage.setItem("formData", JSON.stringify(dataPost));
-  // reset();
-  // router.push("/");
-  // return;
-  // }
-
   async function onSubmit(dataPost) {
     fetch("https://nextdevrep-2044e667dfb2.herokuapp.com/post", {
       //fetch("http://localhost:3001/post", {

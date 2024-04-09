@@ -18,7 +18,7 @@ export default function PostMid(props) {
 
         <div className="">
           <p className="text-[rgb(61_61_61)] hover:text-[rgb(9_9_9)] text-[0.875rem] font-semibold">
-            Juan Paco Pedro de La Mar
+            Juan Paco Pedro de La Mar {props._id}
           </p>
           <p className="text-[rgb(82_82_82)]  text-xs ">22/02/1992</p>
         </div>
@@ -26,6 +26,9 @@ export default function PostMid(props) {
       <div className="text-[rgb(9_9_9)]  font-extrabold hover:text-[rgb(59_73_223)] text-[1.5rem]] p-[20px]">
         <p id="tituloPost" className=" hover:text-[rgb(59_73_223)]">
           {props.titulo}
+          {props.articuloTitulo}
+          {props.articuloPost}
+          {props.updatedAt}
         </p>
       </div>
 
