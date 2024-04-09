@@ -16,20 +16,17 @@ export default function EnterMail() {
   } = useForm();
 
   async function onSubmit(dataLogIn) {
-    const response = await fetch(
-      "https://nextdevrep-2044e667dfb2.herokuapp.com/users/login",
-      {
-        //const response = await fetch("http://localhost:3001/users/login", {
-        method: "Post",
-        body: JSON.stringify({
-          email: dataLogIn.email,
-          password: dataLogIn.password,
-        }),
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-        },
-      }
-    ).catch((error) => {
+    //const response = await fetch( "https://nextdevrep-2044e667dfb2.herokuapp.com/users/login", {
+    const response = await fetch("http://localhost:3001/users/login", {
+      method: "Post",
+      body: JSON.stringify({
+        email: dataLogIn.email,
+        password: dataLogIn.password,
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    }).catch((error) => {
       console.log("Error", error);
     });
 
