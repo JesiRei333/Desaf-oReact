@@ -32,8 +32,8 @@ export default function HomeUsuario() {
   const router = useRouter();
 
   useEffect(() => {
-    //  fetch("https://nextdevrep-2044e667dfb2.herokuapp.com/post", {
-    fetch("http://localhost:3001/post", {
+    fetch("https://nextdevrep-2044e667dfb2.herokuapp.com/post", {
+      //fetch("http://localhost:3001/post", {
       method: "Get",
     })
       .then((response) => response.json())
