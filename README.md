@@ -4,6 +4,7 @@ El objetico de este clon es implementar diversos conocimientos tales como, maque
 
 Front
 ------------------------------♥♥♥
+
 Las tecnologías utilizadas fueron: React + Next, Utilizando sus diferentes hoocks y herramientas tales como react-hook-form, useEffect, useState, react-root , Link, Imagen, etc. Se consumió el Api generada en clases de back, a través de método Fetch, así como localStorage.
 
 Para el despliege se uso vercel, con la siguiente liga:
@@ -25,7 +26,9 @@ https://github.com/JesiRei333/backDev
 
 Istalación front-End
 ------------------------------♥♥♥
+
 Comandos js + react + next
+
 ------------------------------♥♥♥
 npm create next-app@latest
 o
@@ -33,6 +36,7 @@ npx create-next-app@latest
 
 https://nextjs.org/docs/getting-started/installation
 
+------------------------------♥♥♥
 What is your project named? my-appWould you like to use TypeScript? No / YesWould you like to use ESLint? No / YesWould you like to use Tailwind CSS? No / YesWould you like to use `src/` directory? No / YesWould you like to use App Router? (recommended) No / YesWould you like to customize the default import alias (@/_)? No / YesWhat import alias would you like configured? @/_
 ------------------------------♥♥♥
 
