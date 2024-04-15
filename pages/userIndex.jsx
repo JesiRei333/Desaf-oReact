@@ -1,39 +1,35 @@
 import Image from "next/image";
-import { Inter } from "next/font/google";
 import Link from "next/link";
-import AsideLLink from "@/src/components/linkAsideL";
+import AsideLLink from "@/src/componets/pagPrincipal/asideIzquierdo/linkAsideL";
 import { parrafo } from "@/src/constants/parrafoAsideL";
 import { parrafoBot } from "@/src/constants/parrafoAsideLBot";
-import BotonRedes from "@/src/components/redesBoton";
+import BotonRedes from "@/src/componets/pagPrincipal/asideIzquierdo/redesBoton";
 import { redes } from "@/src/constants/redes";
-import ParrafoLink from "@/src/components/linksHastag";
+import ParrafoLink from "@/src/componets/pagPrincipal/asideIzquierdo/linksHastag";
 import { linkHastag } from "@/src/constants/linksHastag";
-import DevAsideLComuni from "@/src/components/devComuniAsideL";
-import AsideRScroll from "@/src/components/asideDerechoScroll";
-import TextoConHiper from "@/src/components/textoconComentarios";
+import DevAsideLComuni from "@/src/componets/pagPrincipal/asideIzquierdo/devComuniAsideL";
+import AsideRScroll from "@/src/componets/pagPrincipal/asdideDerecho/asideDerechoScroll";
+import TextoConHiper from "@/src/componets/pagPrincipal/asdideDerecho/textoconComentarios";
 import { textoConHiper } from "@/src/constants/textoConHiper";
 import { discussWater } from "@/src/constants/discusWatercooler";
-import PostMid from "@/src/components/postMid";
-import BotonHeaderMid from "@/src/components/botonHeaderMid";
+import PostMid from "@/src/componets/pagPrincipal/mid/postMid";
+import BotonHeaderMid from "@/src/componets/pagPrincipal/mid/botonHeaderMid";
 import { botonesHeaderMid } from "@/src/constants/botonesHeaderMid";
 import { botonesHeaderMidDerecha } from "@/src/constants/botonHeaderMidDerecha";
-
-import NavUsuario from "./navUsuario";
-
+import NavUser from "./Nav/navUser";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { data } from "autoprefixer";
-const inter = Inter({ subsets: ["latin"] });
+//import Detalles from "./detallesDepost";
 
-export default function HomeUsuario() {
+export default function IndexUser(props) {
   const [post, setPost] = useState({});
   const [texto, setTexto] = useState("");
 
   const router = useRouter();
 
   useEffect(() => {
-    fetch("https://nextdevrep-2044e667dfb2.herokuapp.com/post", {
-      //fetch("http://localhost:3001/post", {
+    //fetch("https://nextdevrep-2044e667dfb2.herokuapp.com/post", {
+    fetch("http://localhost:3001/post", {
       method: "Get",
     })
       .then((response) => response.json())
@@ -53,8 +49,8 @@ export default function HomeUsuario() {
 
   return (
     <main>
-      <NavUsuario texto={texto} setTexto={setTexto} />
-      <div className="flex justify-center items-center align-middle  bg-[rgb(245_245_245)] p-[55.990px]  text-[rgb(64_64_64)] ">
+      <NavUser texto={texto} setTexto={setTexto} />
+      <div className="flex justify-center items-center align-middle rounded-md bg-[rgb(245_245_245)] p-[55.990px]  text-[rgb(64_64_64)] ">
         <div className="flex justify-center   ">
           <div
             id="divL"
@@ -99,6 +95,7 @@ export default function HomeUsuario() {
               {redes.map((item, index) => {
                 return (
                   <div
+                    key={`redesDiv-${index}`}
                     className="w-min-[40px] h-min-[40px] rounded-md flex items-center p-[8px] pr-[5px] align-middle no-underline "
                     id="redes"
                   >
@@ -120,6 +117,7 @@ export default function HomeUsuario() {
               {linkHastag.map((item, index) => {
                 return (
                   <div
+                    key={`linkHastagDiv-${index}`}
                     className="w-min-[40px] h-min-[40px] rounded-md flex items-center  align-middle no-underline "
                     id="redes"
                   >
@@ -132,9 +130,9 @@ export default function HomeUsuario() {
                 );
               })}
             </div>
-            <div className="p-[8px_16px] max-w-[251.984px] pr-[5px] align-middle  no-underline border-[0.5px] border-[rgba(82,82,82,0.14)]  ">
+            <div className="p-[8px_16px] max-w-[251.984px] rounded-md bg-[rgb(255_255_255)] pr-[5px] align-middle  no-underline border-[0.5px] border-[rgba(82,82,82,0.14)]  ">
               {" "}
-              <DevAsideLComuni className="hover:underline font-normal" />
+              <DevAsideLComuni className="hover:underline rounded-md bg-[rgb(255_255_255)] font-normal" />
             </div>
           </div>
 
@@ -148,6 +146,7 @@ export default function HomeUsuario() {
                 {botonesHeaderMid.map((item, index) => {
                   return (
                     <div
+                      key={`botonesHeaderMidDiv-${index}`}
                       className="rounded-md flex items-center text-justify align-middle  md:pl-[8px]  p-[0px_5px] hover:text-[rgb(59,73,223)]  "
                       id="redes"
                     >
@@ -166,6 +165,7 @@ export default function HomeUsuario() {
                 {botonesHeaderMidDerecha.map((item, index) => {
                   return (
                     <div
+                      key={`botonesHeaderMidDerechaDiv-${index}`}
                       className="rounded-md flex items-center  text-justify align-middle p-[0px_5px] hover:text-[rgb(59,73,223)]   "
                       id="redes"
                     >
@@ -180,71 +180,55 @@ export default function HomeUsuario() {
                 })}{" "}
               </div>
             </header>
-
-            <div className="flex flex-col min-w-[610.656px] items-center align-middle border mb-1 justify-center p-[40px]  ">
+            <div className="flex flex-col min-w-[610.656px] rounded-md bg-[rgb(255_255_255)] items-center align-middle border mb-1 justify-center p-[40px]  ">
               <Image
                 className="rounded-md"
                 src={
-                  "https://media.dev.to/cdn-cgi/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fghs6kydy3oq8obvzg45x.png"
+                  "https://res.cloudinary.com/practicaldev/image/fetch/s--DgbSgg5U--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_100%2Cw_775/https://media.dev.to/cdn-cgi/image/width%3D1000%2Cheight%3D420%2Cfit%3Dcover%2Cgravity%3Dauto%2Cformat%3Dauto/https%253A%252F%252Fdev-to-uploads.s3.amazonaws.com%252Fuploads%252Farticles%252Fn59ze0ihggwhx662h3sj.jpg"
                 }
-                alt={"post"}
+                alt={"Lupa"}
                 width={470}
                 height={197.703}
               />
-              <div className="flex flex-row p-[8px_16px]">
-                <div className="">
-                  <Image
-                    id="imagenPerfil"
-                    className=" "
-                    src={
-                      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/132.png"
-                    }
-                    alt={""}
-                    width={32}
-                    height={32}
-                  />
-                </div>
-
-                <div className="">
-                  <p className="text-[rgb(61_61_61)] hover:text-[rgb(9_9_9)] text-[0.875rem]  font-semibold">
-                    Juan Paco Pedro de La Mar
-                  </p>
-                  <p className="text-[rgb(82_82_82)]  text-xs ">22/02/1992</p>
-                </div>
-                <p id="tituloPost" className="pl-5 ">
-                  21 HTML Tips You Must
-                  <br />
-                  Know About
-                </p>
-              </div>
+              <p id="tituloPost" className=" ">
+                The Cloudflare AI Challenge is live: $3,000
+                <br />
+                in Prizes!
+              </p>
             </div>
 
-            <div className=" flex flex-col border-[0.5px] max-w-[555.656px]  md:min-w-[610.656px] pl-20 sm:pl-12 md:pl-0  border-[rgba(82,82,82,0.14)] rounded-md mb-1 "></div>
-
-            {post.data.map((posT, index) => {
-              return (
-                <Link href={`/detallesUser/${posT._id}`}>
-                  <div className="border-2">
-                    <PostMid
-                      key={`extoConHiper-${index}`}
-                      className="flex hover:bg-[rgba(113,234,139,0.14)] hover:border-1 p-[8px_16px]  "
-                      articuloTitulo={posT.articuloTitulo}
-                    />
-                  </div>
-                </Link>
-              );
-            })}
+            <div className=" flex flex-col max-w-[555.656px]  md:min-w-[610.656px] pl-20 sm:pl-12 md:pl-0  border-[rgba(82,82,82,0.14)] rounded-md mb-1 ">
+              {post.data.map((posT, index) => {
+                return (
+                  <Link
+                    key={`extoConHiperLink-${index}`}
+                    href={`/post/detallesPostUser/${posT._id}`}
+                  >
+                    <div
+                      key={`extoConHiperDiv-${index}`}
+                      className="border-[1px] rounded-md bg-[rgb(255_255_255)]"
+                    >
+                      <PostMid
+                        key={`extoConHiper-${index}`}
+                        className="flex hover:bg-[rgba(113,234,139,0.14)] hover:border-1 p-[8px_16px]  "
+                        articuloTitulo={posT.articuloTitulo}
+                      />
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
           </div>
           <div
             id="divR"
             className="hidden lg:flex flex-col max-w-[301.368px] min-w-[321.368px] h-full gap-[4px]  pt-[16px]"
           >
-            <div className="max-h-[454px] min-w-[301.368px] border-2 p-[8px_16px] mb-3">
+            <div className="max-h-[454px] bg-[rgb(255_255_255)] rounded-mdmin-w-[301.368px] border-[1.5px] p-[8px_16px] mb-3">
               <p className="font-bold text-xl">🥰 Challenges</p>
               <AsideRScroll className="text-base font-bold" />
             </div>
             <div>
-              <div className="max-h-[644px] min-w-[301.368px]  p-[8px_16px] border-[0.5px] border-[rgba(82,82,82,0.14)]  pt-[8px]  mb-3">
+              <div className="max-h-[644px] min-w-[301.368px]  p-[8px_16px] rounded-md bg-[rgb(255_255_255)] border-[0.5px] border-[rgba(82,82,82,0.14)]  pt-[8px]  mb-3">
                 <p className="font-bold text-xl">#discuss</p>
                 <p className="text-xs">
                   Discussion threads targeting the whole community
@@ -253,6 +237,7 @@ export default function HomeUsuario() {
                 {textoConHiper.map((item, index) => {
                   return (
                     <div
+                      key={`extoConHiperDiv-${index}`}
                       className="md:w-min-[40px] md:min-w-[301.368px]  md:h-min-[40px] rounded-md flex items-center text-justify align-middle   "
                       id="redes"
                     >
@@ -266,13 +251,14 @@ export default function HomeUsuario() {
                   );
                 })}
               </div>
-              <div className="max-h-[644px] p-[8px_16px] border-[0.5px] border-[rgba(82,82,82,0.14)] pt-[8px] mb-3">
+              <div className="max-h-[644px] p-[8px_16px] border-[0.5px] rounded-md bg-[rgb(255_255_255)] border-[rgba(82,82,82,0.14)] pt-[8px] mb-3">
                 <p className="font-bold text-xl">#watercooler</p>
                 <p className="text-xs">Light, and off-topic conversation.</p>
                 <br />
                 {discussWater.map((item, index) => {
                   return (
                     <div
+                      key={`discussWaterDiv-${index}`}
                       className="w-min-[40px] h-min-[40px] rounded-md flex items-center text-base  text-justify align-middle  "
                       id="redes"
                     >
@@ -293,4 +279,10 @@ export default function HomeUsuario() {
       </div>
     </main>
   );
+}
+
+export async function getStaticProps(ctx) {
+  return {
+    props: {},
+  };
 }

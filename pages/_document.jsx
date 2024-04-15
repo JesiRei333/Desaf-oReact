@@ -1,13 +1,18 @@
 import { Html, Head, Main, NextScript } from "next/document";
 
-export default function Document() {
+export default function Document(props) {
   return (
     <Html lang="en">
       <Head />
-      <body className="bg-[rgb(245_245_245)]">
+      <body>
         <Main />
         <NextScript />
       </body>
     </Html>
   );
+}
+export async function getStaticProps(ctx) {
+  return {
+    props: {},
+  };
 }
