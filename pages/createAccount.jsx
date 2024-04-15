@@ -5,8 +5,8 @@ import { useEffect } from "react";
 
 export default function CreateAcount(props) {
   async function onSubmit(dataLog) {
-    // fetch("https://nextdevrep-2044e667dfb2.herokuapp.com/users/enter", {
-    fetch("http://localhost:3001/users/enter", {
+    fetch("https://devcloneback-c7810b7f34c4.herokuapp.com/users/enter", {
+      //fetch("http://localhost:3001/users/enter", {
       method: "Post",
       body: JSON.stringify({
         nameLogin: dataLog.nameLogin,

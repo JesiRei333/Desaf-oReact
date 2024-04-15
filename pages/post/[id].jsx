@@ -12,8 +12,8 @@ export default function Detalles(props) {
   let id = router.query.id;
 
   useEffect(() => {
-    // fetch(`https://nextdevrep-2044e667dfb2.herokuapp.com/post/${id}`, {
-    fetch(`http://localhost:3001/post/${id}`, {
+    fetch(`https://devcloneback-c7810b7f34c4.herokuapp.com/post/${id}`, {
+      // fetch(`http://localhost:3001/post/${id}`, {
       method: "Get",
     })
       .then((response) => response.json())
