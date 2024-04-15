@@ -2,12 +2,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 
-export default function NavUsuario(props) {
+export default function NavUser(props) {
   const [texto, setTexto] = useState("");
   const [token, setToken] = useState("");
 
   return (
-    <nav className=" fixed flex justify-center bg-[rgb(245_245_245)] border-[1.5px] min-h-[55.990px] min-w-full align-middle ">
+    <nav className=" fixed flex justify-center bg-[rgb(255_255_255)] border-[1.5px] min-h-[55.990px] min-w-full align-middle ">
       <div className="flex relative justify-center align-middle items-center ">
         <div className="flex justify-center align-middle max-h-[40px] max-w-[50px]  ">
           <div className="pr-[16px] md:hidden">
@@ -22,7 +22,7 @@ export default function NavUsuario(props) {
         </div>
 
         <div className="pr-[16px]">
-          <Link href="/usuarioIndex">
+          <Link href="/userIndex">
             <div className="flex justify-center align-middle max-h-[40px] min-w-[50px]  ">
               <Image
                 className=""
@@ -79,26 +79,10 @@ export default function NavUsuario(props) {
             </button>
           </div>
 
-          <div className="hidden">
-            <Link href="/enter/enterEmail">
-              <button className="hidden md:flex hover:bg-[rgb(59_73_223/10%)] p-[8px_16px] text-center min-w-[39px] hover:text-[rgb(47_58_178)] rounded-md">
-                Log in
-              </button>
-            </Link>
-          </div>
-
-          <div className="hidden">
-            <Link href="/enter">
-              <button className="hover:bg-[rgb(59_73_223)] p-[8px_16px] min-w-[95px] text-center text-[rgb(59_73_223)] hover:text-[rgb(255_255_255)] border-[rgb(59_73_223)] border-2 rounded-lg  font-semibold">
-                Create account
-              </button>
-            </Link>
-          </div>
-
           <div className="">
-            <Link href="/post">
+            <Link href="/createPost">
               <button className="hover:bg-[rgb(59_73_223)] p-[8px_16px] min-w-[95px] text-center text-[rgb(59_73_223)] hover:text-[rgb(255_255_255)] border-[rgb(59_73_223)] border-2 rounded-lg  font-semibold">
-                Create post
+                <p className="hover:underline">Create post</p>
               </button>
             </Link>
           </div>
@@ -106,4 +90,9 @@ export default function NavUsuario(props) {
       </div>
     </nav>
   );
+}
+export async function getStaticProps(ctx) {
+  return {
+    props: {},
+  };
 }

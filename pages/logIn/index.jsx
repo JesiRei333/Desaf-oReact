@@ -1,10 +1,11 @@
-import EnterBoton from "@/src/components/enterBoton";
+import EnterBoton from "@/src/componets/createAccount/enterBoton";
 import Image from "next/image";
-import { enterLoginBoton } from "@/src/constants/enterLoginboton";
 import Link from "next/link";
-export default function Enter() {
+import { enterLoginBoton } from "@/src/constants/enterLoginboton";
+
+export default function LogIn(props) {
   return (
-    <main className=" h-full w-full min-h-screen min-w-screen align-middle justify-center  ">
+    <main className=" h-full w-full min-h-screen bg-[rgb(255_255_255)] min-w-screen align-middle justify-center  ">
       <div
         className="flex h-full w-full min-h-[580px] min-w-screen   items-center  align-middle flex-col  rounded-md pt-10
     "
@@ -31,6 +32,7 @@ export default function Enter() {
           {enterLoginBoton.map((item, index) => {
             return (
               <div
+                key={`enterLoginDivBoton-${index}`}
                 className=" flex flex-col w-min-[40px] min-w-[301.368px] p-1.5 rounded-md items-center text-justify align-middle text-sm font-semibold "
                 id="redes"
               >
@@ -66,10 +68,15 @@ export default function Enter() {
         <div className="w-min-[40px]  h-min-[40px] flex justify-center items-center text-justify align-middle text-base font-normal min-w-[580px] max-h-[580px] text-[rgb(23_23_23)] not-italic border-t-2 p-3">
           Already have an account?{" "}
           <span className="text-[rgb(59_73_223)] font-normal">
-            <Link href="/enter/enterEmail"> Log in. </Link>
+            <Link href="/logIn/logInEmail"> Log in. </Link>
           </span>
         </div>
       </div>
     </main>
   );
+}
+export async function getStaticProps(ctx) {
+  return {
+    props: {},
+  };
 }

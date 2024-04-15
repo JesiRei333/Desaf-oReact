@@ -1,37 +1,35 @@
 import Image from "next/image";
-import { Inter } from "next/font/google";
 import Link from "next/link";
-import AsideLLink from "@/src/components/linkAsideL";
+import AsideLLink from "@/src/componets/pagPrincipal/asideIzquierdo/linkAsideL";
 import { parrafo } from "@/src/constants/parrafoAsideL";
 import { parrafoBot } from "@/src/constants/parrafoAsideLBot";
-import BotonRedes from "@/src/components/redesBoton";
+import BotonRedes from "@/src/componets/pagPrincipal/asideIzquierdo/redesBoton";
 import { redes } from "@/src/constants/redes";
-import ParrafoLink from "@/src/components/linksHastag";
+import ParrafoLink from "@/src/componets/pagPrincipal/asideIzquierdo/linksHastag";
 import { linkHastag } from "@/src/constants/linksHastag";
-import DevAsideLComuni from "@/src/components/devComuniAsideL";
-import AsideRScroll from "@/src/components/asideDerechoScroll";
-import TextoConHiper from "@/src/components/textoconComentarios";
+import DevAsideLComuni from "@/src/componets/pagPrincipal/asideIzquierdo/devComuniAsideL";
+import AsideRScroll from "@/src/componets/pagPrincipal/asdideDerecho/asideDerechoScroll";
+import TextoConHiper from "@/src/componets/pagPrincipal/asdideDerecho/textoconComentarios";
 import { textoConHiper } from "@/src/constants/textoConHiper";
 import { discussWater } from "@/src/constants/discusWatercooler";
-import PostMid from "@/src/components/postMid";
-import BotonHeaderMid from "@/src/components/botonHeaderMid";
+import PostMid from "@/src/componets/pagPrincipal/mid/postMid";
+import BotonHeaderMid from "@/src/componets/pagPrincipal/mid/botonHeaderMid";
 import { botonesHeaderMid } from "@/src/constants/botonesHeaderMid";
 import { botonesHeaderMidDerecha } from "@/src/constants/botonHeaderMidDerecha";
-import Nav from "./nav";
+import NavNoUser from "./Nav/navNoUser";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import Detalles from "./detallesDepost";
-const inter = Inter({ subsets: ["latin"] });
+//import Detalles from "./detallesDepost";
 
-export default function Home() {
+export default function Home(props) {
   const [post, setPost] = useState({});
   const [texto, setTexto] = useState("");
 
   const router = useRouter();
 
   useEffect(() => {
-    fetch("https://nextdevrep-2044e667dfb2.herokuapp.com/post", {
-      //fetch("http://localhost:3001/post", {
+    // fetch("https://nextdevrep-2044e667dfb2.herokuapp.com/post", {
+    fetch("http://localhost:3001/post", {
       method: "Get",
     })
       .then((response) => response.json())
@@ -51,12 +49,12 @@ export default function Home() {
 
   return (
     <main>
-      <Nav texto={texto} setTexto={setTexto} />
+      <NavNoUser texto={texto} setTexto={setTexto} />
       <div className="flex justify-center items-center align-middle  bg-[rgb(245_245_245)] p-[55.990px]  text-[rgb(64_64_64)] ">
         <div className="flex justify-center   ">
           <div
             id="divL"
-            className=" hidden md:flex flex-col min-w-[208.021px] h-full p-[16px] pr-[0px]"
+            className=" hidden md:flex flex-col min-w-[208.021px] h-full  p-[16px] pr-[0px]"
           >
             <div className="p-[8px_16px] pr-[5px] min-w-[208px] min-h-[23.983px] rounded-md no-underline ">
               {parrafo.map((item, index) => {
@@ -97,6 +95,7 @@ export default function Home() {
               {redes.map((item, index) => {
                 return (
                   <div
+                    key={`redesDiv-${index}`}
                     className="w-min-[40px] h-min-[40px] rounded-md flex items-center p-[8px] pr-[5px] align-middle no-underline "
                     id="redes"
                   >
@@ -118,6 +117,7 @@ export default function Home() {
               {linkHastag.map((item, index) => {
                 return (
                   <div
+                    key={`linkHastagDiv-${index}`}
                     className="w-min-[40px] h-min-[40px] rounded-md flex items-center  align-middle no-underline "
                     id="redes"
                   >
@@ -130,9 +130,9 @@ export default function Home() {
                 );
               })}
             </div>
-            <div className="p-[8px_16px] max-w-[251.984px] pr-[5px] align-middle  no-underline border-[0.5px] border-[rgba(82,82,82,0.14)]  ">
+            <div className="p-[8px_16px] max-w-[251.984px] rounded-md bg-[rgb(255_255_255)]  align-middle  no-underline border-[0.5px] border-[rgba(82,82,82,0.14)]  ">
               {" "}
-              <DevAsideLComuni className="hover:underline font-normal" />
+              <DevAsideLComuni className="hover:underline font-normal bg-[rgb(255_255_255)]" />
             </div>
           </div>
 
@@ -146,6 +146,7 @@ export default function Home() {
                 {botonesHeaderMid.map((item, index) => {
                   return (
                     <div
+                      key={`botonesHeaderMidDiv-${index}`}
                       className="rounded-md flex items-center text-justify align-middle  md:pl-[8px]  p-[0px_5px] hover:text-[rgb(59,73,223)]  "
                       id="redes"
                     >
@@ -164,6 +165,7 @@ export default function Home() {
                 {botonesHeaderMidDerecha.map((item, index) => {
                   return (
                     <div
+                      key={`botonesHeaderMidDerechaDiv-${index}`}
                       className="rounded-md flex items-center  text-justify align-middle p-[0px_5px] hover:text-[rgb(59,73,223)]   "
                       id="redes"
                     >
@@ -178,7 +180,7 @@ export default function Home() {
                 })}{" "}
               </div>
             </header>
-            <div className="flex flex-col min-w-[610.656px] items-center align-middle border mb-1 justify-center p-[40px]  ">
+            <div className="flex flex-col min-w-[610.656px] bg-[rgb(255_255_255)] rounded-md items-center align-middle border mb-1 justify-center p-[40px]  ">
               <Image
                 className="rounded-md"
                 src={
@@ -195,32 +197,40 @@ export default function Home() {
               </p>
             </div>
 
-            <div className=" flex flex-col border-[0.5px] max-w-[555.656px]  md:min-w-[610.656px] pl-20 sm:pl-12 md:pl-0  border-[rgba(82,82,82,0.14)] rounded-md mb-1 ">
-              {post.data.map((posT, index) => {
-                return (
-                  <Link href={`/detallesDepost/${posT._id}`}>
-                    <div className="border-2">
-                      <PostMid
-                        key={`extoConHiper-${index}`}
-                        className="flex hover:bg-[rgba(113,234,139,0.14)] hover:border-1 p-[8px_16px]  "
-                        articuloTitulo={posT.articuloTitulo}
-                      />
-                    </div>
-                  </Link>
-                );
-              })}
+            <div className=" flex flex-col max-w-[555.656px]  md:min-w-[610.656px] pl-20 sm:pl-12 md:pl-0  border-[rgba(82,82,82,0.14)] rounded-lg mb-1 ">
+              {post.data
+                .sort((a, b) => b.createdAt - a.createdAt)
+                .map((posT, index) => {
+                  return (
+                    <Link
+                      key={`extoConHiperLink-${index}`}
+                      href={`/post/${posT._id}`}
+                    >
+                      <div
+                        key={`extoConHiperDiv-${index}`}
+                        className="border-[1.5px] rounded-md bg-[rgb(255_255_255)] "
+                      >
+                        <PostMid
+                          key={`extoConHiper-${index}`}
+                          className="flex hover:bg-[rgba(113,234,139,0.14)] hover:border-1 p-[8px_16px]  "
+                          articuloTitulo={posT.articuloTitulo}
+                        />
+                      </div>
+                    </Link>
+                  );
+                })}
             </div>
           </div>
           <div
-            id="divR"
-            className="hidden lg:flex flex-col max-w-[301.368px] min-w-[321.368px] h-full gap-[4px]  pt-[16px]"
+            id="divR "
+            className="  hidden lg:flex flex-col max-w-[301.368px] min-w-[321.368px] h-full gap-[4px]  pt-[16px]"
           >
-            <div className="max-h-[454px] min-w-[301.368px] border-2 p-[8px_16px] mb-3">
+            <div className="min-h-[460px]  bg-[rgb(255_255_255)] rounded-md min-w-[301.368px] border-[1.5px] p-[8px_16px] mb-3">
               <p className="font-bold text-xl">🥰 Challenges</p>
               <AsideRScroll className="text-base font-bold" />
             </div>
             <div>
-              <div className="max-h-[644px] min-w-[301.368px]  p-[8px_16px] border-[0.5px] border-[rgba(82,82,82,0.14)]  pt-[8px]  mb-3">
+              <div className="max-h-[650px] min-w-[301.368px] border-1 rounded-md bg-[rgb(255_255_255)]  p-[8px_16px] border-[0.5px] border-[rgba(82,82,82,0.14)]  pt-[8px]  mb-3">
                 <p className="font-bold text-xl">#discuss</p>
                 <p className="text-xs">
                   Discussion threads targeting the whole community
@@ -229,6 +239,7 @@ export default function Home() {
                 {textoConHiper.map((item, index) => {
                   return (
                     <div
+                      key={`extoConHiperDiv-${index}`}
                       className="md:w-min-[40px] md:min-w-[301.368px]  md:h-min-[40px] rounded-md flex items-center text-justify align-middle   "
                       id="redes"
                     >
@@ -242,13 +253,14 @@ export default function Home() {
                   );
                 })}
               </div>
-              <div className="max-h-[644px] p-[8px_16px] border-[0.5px] border-[rgba(82,82,82,0.14)] pt-[8px] mb-3">
+              <div className="max-h-[644px] p-[8px_16px] rounded-md bg-[rgb(255_255_255)] border-[0.5px] border-[rgba(82,82,82,0.14)] pt-[8px] mb-3">
                 <p className="font-bold text-xl">#watercooler</p>
                 <p className="text-xs">Light, and off-topic conversation.</p>
                 <br />
                 {discussWater.map((item, index) => {
                   return (
                     <div
+                      key={`discussWaterDiv-${index}`}
                       className="w-min-[40px] h-min-[40px] rounded-md flex items-center text-base  text-justify align-middle  "
                       id="redes"
                     >
@@ -269,4 +281,10 @@ export default function Home() {
       </div>
     </main>
   );
+}
+
+export async function getStaticProps(ctx) {
+  return {
+    props: {},
+  };
 }

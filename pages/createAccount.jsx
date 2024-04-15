@@ -1,12 +1,12 @@
-import Nav from "../nav";
+import NavNoUser from "./Nav/navNoUser";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 
-export default function Enter() {
+export default function CreateAcount(props) {
   async function onSubmit(dataLog) {
-    fetch("https://nextdevrep-2044e667dfb2.herokuapp.com/users/enter", {
-      //fetch("http://localhost:3001/users/enter", {
+    // fetch("https://nextdevrep-2044e667dfb2.herokuapp.com/users/enter", {
+    fetch("http://localhost:3001/users/enter", {
       method: "Post",
       body: JSON.stringify({
         nameLogin: dataLog.nameLogin,
@@ -41,14 +41,14 @@ export default function Enter() {
 
   return (
     <main>
-      <Nav />
+      <NavNoUser />
       <div className=" h-full w-full min-h-screen min-w-screen   ">
         <div
-          className="flex w-[710px] h-[100%] min-w-screen  align-middle rounded-md 
+          className="flex w-[710px] h-[100%] min-w-screen align-middle rounded-md 
         pt-[6rem] ml-auto mr-auto text-[rgb(23_23_23)"
         >
           <div
-            className="flex flex-col w-[546px] h-[100%] border-2 min-w-screen   align-middle rounded-md 
+            className="flex flex-col w-[546px] h-[100%] border-2 min-w-screen  bg-[rgb(255_255_255)] align-middle rounded-md 
         p-[32px]  ml-auto mr-auto text-[rgb(23_23_23)]
     "
           >
@@ -227,4 +227,9 @@ export default function Enter() {
       </div>
     </main>
   );
+}
+export async function getStaticProps(ctx) {
+  return {
+    props: {},
+  };
 }

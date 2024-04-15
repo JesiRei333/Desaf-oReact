@@ -1,21 +1,17 @@
-import Link from "next/link";
 import Image from "next/image";
-
 import { useEffect } from "react";
 import { useRouter } from "next/router";
-
 import { useState } from "react";
-import Nav from "../nav";
-import NavUsuario from "../navUsuario";
+import NavUser from "@/pages/Nav/navUser";
 
-export default function Detalles() {
+export default function Detalles(props) {
   const router = useRouter();
   const [post, setPost] = useState([]);
   let id = router.query.id;
 
   useEffect(() => {
-    fetch(`https://nextdevrep-2044e667dfb2.herokuapp.com/post/${id}`, {
-      // fetch(`http://localhost:3001/post/${id}`, {
+    //fetch(`https://nextdevrep-2044e667dfb2.herokuapp.com/post/${id}`, {
+    fetch(`http://localhost:3001/post/${id}`, {
       method: "Get",
     })
       .then((response) => response.json())
@@ -25,7 +21,7 @@ export default function Detalles() {
       .catch((error) => {
         console.log("Error", error);
       });
-  }, []);
+  }, [id]);
 
   if (!post.data) {
     return (
@@ -36,7 +32,7 @@ export default function Detalles() {
   return (
     <main className=" h-full w-full min-h-screen min-w-screen   ">
       <nav className=" flex justify-center bg-[rgb(245_245_245)] min-h-[55.990px] min-w-full align-middle items-center ">
-        <NavUsuario />
+        <NavUser />
       </nav>
 
       <div

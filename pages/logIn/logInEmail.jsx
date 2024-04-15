@@ -1,11 +1,12 @@
-import EnterBoton from "@/src/components/enterBoton";
+import EnterBoton from "@/src/componets/createAccount/enterBoton";
 import Image from "next/image";
-import OrLinea from "@/src/components/orLinea";
+import OrLinea from "@/src/componets/logIn/orLinea";
 import { enterLoginContinue } from "@/src/constants/enterLoginContinue";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
-export default function EnterMail() {
+
+export default function LogInEmail(props) {
   const router = useRouter();
 
   const {
@@ -16,20 +17,18 @@ export default function EnterMail() {
   } = useForm();
 
   async function onSubmit(dataLogIn) {
-    const response = await fetch(
-      "https://nextdevrep-2044e667dfb2.herokuapp.com/users/login",
-      {
-        //const response = await fetch("http://localhost:3001/users/login", {
-        method: "Post",
-        body: JSON.stringify({
-          email: dataLogIn.email,
-          password: dataLogIn.password,
-        }),
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-        },
-      }
-    ).catch((error) => {
+    // const response = await fetch(
+    //  "https://nextdevrep-2044e667dfb2.herokuapp.com/users/login",{
+    const response = await fetch("http://localhost:3001/users/login", {
+      method: "Post",
+      body: JSON.stringify({
+        email: dataLogIn.email,
+        password: dataLogIn.password,
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    }).catch((error) => {
       console.log("Error", error);
     });
 
@@ -38,7 +37,7 @@ export default function EnterMail() {
       localStorage.setItem("token", json.token);
 
       console.log("Login Exitoso");
-      router.push("/usuarioIndex");
+      router.push("/userIndex");
       return;
     }
     console.log("Usuario o contraseña inválidos");
@@ -46,7 +45,7 @@ export default function EnterMail() {
   }
 
   return (
-    <main className=" h-full w-full min-h-screen min-w-screen align-middle justify-center  ">
+    <main className=" h-full bg-[rgb(255_255_255)] w-full min-h-screen min-w-screen align-middle justify-center  ">
       <div
         className="flex h-full w-full min-h-[530px] min-w-screen   items-center  align-middle flex-col  rounded-md pt-10
     "
@@ -72,6 +71,7 @@ export default function EnterMail() {
           {enterLoginContinue.map((item, index) => {
             return (
               <div
+                key={`enterLoginDivBoton-${index}`}
                 className="w-min-[40px] min-w-[301.368px]  h-min-[40px] p-1.5 rounded-md flex items-center text-justify align-middle text-sm font-semibold "
                 id="redes"
               >
@@ -86,7 +86,7 @@ export default function EnterMail() {
               </div>
             );
           })}
-          <div>
+          <div className="">
             <OrLinea />
           </div>
           <form name="form" className="" onSubmit={handleSubmit(onSubmit)}>
@@ -175,7 +175,7 @@ export default function EnterMail() {
                   New to DEV Community?{" "}
                   <span className="text-[rgb(59_73_223)] font-normal">
                     {" "}
-                    <Link href="/enter"> Create account.</Link>
+                    <Link href="/logIn"> Create account.</Link>
                   </span>
                 </div>
               </div>
@@ -185,4 +185,9 @@ export default function EnterMail() {
       </div>
     </main>
   );
+}
+export async function getStaticProps(ctx) {
+  return {
+    props: {},
+  };
 }

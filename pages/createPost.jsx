@@ -1,12 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
-import BotonPost from "@/src/components/botonPost";
+import BotonPost from "@/src/componets/createPost/botonPost";
 import { botonPost } from "@/src/constants/botonPostImg";
 
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
 
-export default function Post() {
+export default function CreatePost(props) {
   const router = useRouter();
 
   const {
@@ -17,8 +17,8 @@ export default function Post() {
   } = useForm();
 
   async function onSubmit(dataPost) {
-    fetch("https://nextdevrep-2044e667dfb2.herokuapp.com/post", {
-      //fetch("http://localhost:3001/post", {
+    //fetch("https://nextdevrep-2044e667dfb2.herokuapp.com/post", {
+    fetch("http://localhost:3001/post", {
       method: "Post",
       body: JSON.stringify({
         articuloPost: dataPost.articuloPost,
@@ -30,15 +30,15 @@ export default function Post() {
     }).then((response) => response.json());
 
     reset();
-    router.push("/usuarioIndex");
+    router.push("/userIndex");
     return;
   }
 
   return (
     <main className=" h-full w-full min-h-screen min-w-screen   ">
-      <nav className=" flex justify-center bg-[rgb(245_245_245)] min-h-[55.990px] min-w-full align-middle items-center ">
-        <div className=" flex flex-row justify-center items-center  md:pr-60  ">
-          <Link href="/usuarioIndex">
+      <nav className=" flex justify-center  min-h-[55.990px] min-w-full align-middle items-center ">
+        <div className=" flex flex-row justify-center  items-center  md:pr-60  ">
+          <Link href="/userIndex">
             <div className="flex justify-center align-middle max-h-[40px] min-w-[50px]  ">
               <Image
                 className=""
@@ -51,7 +51,7 @@ export default function Post() {
               />
             </div>
           </Link>
-          <div className="p-4">Create Post</div>
+          <div className="p-4 font-semibold">Create Post</div>
         </div>
 
         <div className="flex flex-row pl-80   ">
@@ -69,7 +69,7 @@ export default function Post() {
          ml-auto mr-auto text-[rgb(23_23_23)]"
       >
         <div
-          className="flex flex-col justify-start  md:max-w-[506px] lg:max-w-[806px]  border-2 p-[64px]  rounded-md 
+          className="flex flex-col justify-start bg-[rgb(255_255_255)] md:max-w-[506px] lg:max-w-[806px]  border-2 p-[64px]  rounded-md 
           "
         >
           <button
@@ -111,11 +111,15 @@ export default function Post() {
               )}
             </div>
             <div className=" p-2 ">Add up 4 tags...</div>
-            <div id="botones " className="flex flex-row pl-5   ">
+            <div
+              id="botones "
+              className="flex flex-row  w-[100%] h-[50px]  bg-[rgb(245_245_245)]"
+            >
               {botonPost.map((item, index) => {
                 return (
                   <div
-                    className=" rounded-md flex items-center text-justify align-middle text-sm font-semibold "
+                    key={`DivPost-${index}`}
+                    className=" rounded-md flex items-center  pl-2 text-justify align-middle text-sm font-semibold "
                     id="redes"
                   >
                     <BotonPost
@@ -163,14 +167,20 @@ export default function Post() {
               ></textarea>
             </div>
             <button
-              className="hover:bg-[rgb(59_73_223)] p-[8px_16px] min-w-[95px] text-center text-[rgb(59_73_223)] hover:text-[rgb(255_255_255)] border-[rgb(59_73_223)] border-2 rounded-lg  font-semibold"
+              className="hover:bg-[rgb(47_58_178)] p-[8px_16px] min-w-[95px] text-center text-[rgb(255_255_255)] bg-[rgb(59_73_223)] border-2 rounded-lg  font-semibold"
               type="submit"
             >
-              Agregar
+              Publish
             </button>
           </form>
         </div>
       </div>
     </main>
   );
+}
+
+export async function getStaticProps(ctx) {
+  return {
+    props: {},
+  };
 }
