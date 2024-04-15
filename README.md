@@ -8,7 +8,7 @@ Las tecnologías utilizadas fueron: React + Next, Utilizando sus diferentes hooc
 
 Para el despliege se uso vercel, con la siguiente liga:
 
-https://desaf-o-react-rgy5if7at-jesirei333s-projects.vercel.app/
+https://vercel.com/jesirei333s-projects/desaf-o-react
 
 Maquetado: Para un mejor maquetado se uso clsx y tailwicdcss
 
@@ -17,11 +17,11 @@ Back
 
 Se uso para despliegue la app heroku, con la siguiente liga:
 
-https://nextdevrep-2044e667dfb2.herokuapp.com/
+https://devcloneback-c7810b7f34c4.herokuapp.com/
 
 Además de la implementación de mongoose, para la BD y postman para la creación de los diferentes ENDPoints, los EndPoints estan guardados en la carpeta de backEnd/repaso, sin embargo estan en su propio repositorio en la siguiente liga:
 
-https://github.com/JesiRei333/backNextDev
+https://github.com/JesiRei333/backDev
 
 Istalación front-End
 ------------------------------♥♥♥
